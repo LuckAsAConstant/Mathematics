@@ -1,7 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1666529208 "c:/Users/LuckA/OneDrive/Documenti/Math/Calulus II/calculus.tex" "calculus.pdf" "calculus" 1666529210
-  "Calculus.tex" 1666529206 3685 cfb775391609553ba6955285f6df8ba9 ""
-  "c:/Users/LuckA/OneDrive/Documenti/Math/Calulus II/calculus.tex" 1666529206 3685 cfb775391609553ba6955285f6df8ba9 ""
+["pdflatex"] 1666545874 "c:/Users/LuckA/OneDrive/Documenti/Mathematics/Calulus II/Calculus.tex" "Calculus.pdf" "Calculus" 1666545875
+  "Calculus.aux" 1666545875 126 2760e5e480210ea47b0964dbe6fca12e "pdflatex"
+  "Calculus.tex" 1666545873 3687 06b1392a73b2c424a23a713bbc1f1ec1 ""
+  "c:/Users/LuckA/OneDrive/Documenti/Mathematics/Calulus II/Calculus.tex" 1666545873 3687 06b1392a73b2c424a23a713bbc1f1ec1 ""
   "c:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1666028450 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1666027807 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1666027807 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -78,10 +79,8 @@
   "c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1666030050 4448422 53302d27d6d34c8e3e97ce3a8b4bdfa7 ""
   "c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1666030139 2826461 f17d8d9b8ee291ee0afb871a5b01e9b5 ""
   "c:/texlive/2022/texmf.cnf" 1666030023 713 e69b156964470283e0530f5060668171 ""
-  "calculus.aux" 1666529210 126 2760e5e480210ea47b0964dbe6fca12e ""
+  "calculus.aux" 1666545875 126 2760e5e480210ea47b0964dbe6fca12e ""
   (generated)
   "Calculus.aux"
   "Calculus.log"
   "Calculus.pdf"
-  "calculus.log"
-  "calculus.pdf"
