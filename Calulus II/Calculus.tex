@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,scalerel,amsthm}
+\usepackage{derivative}
+\usepackage{mathtools}
+\usepackage{color}
+
+
+\title{Calculus II}
+\author{Alessio Esposito}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\maketitle
+
+    \begin{theorem}
+        $A$ is closed $\Longleftrightarrow$ every accumulation point for $A$ is in $A$ \hfill    
+    \end{theorem}
+    \begin{proof}
+        $"\Longrightarrow"$ Let $A \subseteq \mathbb{R}^n, \ A = A \cup \partial A. \\$ Then $\forall  p \in \bar{\mathcal{D}} (A), \ C_r(p)_{\diagdown p}\cap A \neq \emptyset \ \forall  C \in \mathcal{C}_p.$ \\
+        if $ p \notin A $ then $C_r(p)$ has elements that dont belong to $A \Rightarrow p \in \partial A.$ \\
+        $"\Longleftarrow"$ Let $p \in \partial A \Rightarrow \forall C \in \mathcal{C}_p$ of center $r$ with $r \in \mathbb{R}$ by definition we can find some $x \in C_{\diagdown p} \cap A, $ so that means $p \in \bar{\mathcal{D}} (A) \Rightarrow p \in A.$       
+    \end{proof}
+
+\section{Limits}
+
+    \begin{definition}
+        Let $A \subseteq \mathbb{R}^2$ and $(x_0,y_0)$ an accumulation point for $A.$ we define $A^*$ as follows: \\ 
+        $A^* = \{(\rho , \theta) \in [0, +\infty ] \times [0, 2\pi] : (x_0 + \rho \cos(\theta), y_0 + \rho \sin(\theta)) \in A \}.$
+
+    \end{definition}
+        
+    \begin{proposition}
+        Lets suppose that exist a circle $C$ of center $(x_0,y_0)$ such that $C_{\diagdown \{ (x_0,y_0) \}} \subseteq A$ let $r$ be the radius of the circle and as a consequence $(0,r] \times [0,2\pi] \subseteq A^*$
+    \end{proposition}
+    
+    \begin{proof}
+        Let $C_{\diagdown \{ (x_0,y_0) \}}$ and
+            $\begin{cases}
+                0 < \rho \leqslant r \\
+                0 \leqslant \theta \leqslant 2\pi
+            \end{cases}$
+            if $(\rho, \theta) \in (0,r] \times [0,2\pi]$ \\ then $(x_0 + \rho \cos(\theta), y_0 + \rho \sin(\theta)) \in C_{\diagdown \{ (x_0,y_0) \}} \subseteq A \Rightarrow (\rho, \theta) \in A^*$.
+    \end{proof}
+        
+    \begin{definition}
+        Let $\theta \in [0,2\pi]$ and $\forall \rho \in (0,r]$ we define $\varphi_\theta(\rho) = F(\rho, \theta)$ if $\rho \in (0,r], (\rho, 0) \in A^*$ so the $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}}$. \\
+        If that limit exists that means $\forall \theta \in [0, 2\pi]$ and $\forall \varepsilon > 0$, $\exists \delta > 0 \ \forall \rho \in (0,r]$ with $\rho < \delta \ \left\lvert \varphi_\theta - l \right\rvert < \varepsilon.$ \\
+        We say that $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}} $ Uniformly With Respect To $(U.W.R.T)$ $\theta$     
+    \end{definition}
+            
+    \begin{theorem}
+        Let $f:A\subseteq \mathbb{R}^2 \rightarrow \mathbb{R} $ with $(x_0,y_0)$ accumulation point for $A.$ \\ Follows the equivalence: \\ $\lim_{(x,y) \to (x_0,y_0)} f(x,y) = l \in \bar{\mathbb{R}} \Longleftrightarrow \lim_{\rho \to 0} F(\rho, \theta ) = l \ U.W.R.T \ \theta$ 
+    \end{theorem}
+
+    \begin{proof}
+        Let $l \in \bar{\mathbb{R}}. \\$
+        $"\Rightarrow" \ \lim_{(x,y) \to (x_0, y_0)} f(x,y) = l$ so $\forall \varepsilon > 0, \exists \delta > 0: \forall \ (x,y) \in A$ \\ with $\left\lVert (x,y) - (x_0,y_0)\right\rVert < \delta, \ \left\lvert f(x,y) - l \right\rvert < \varepsilon. \\$
+        We have to prove that $\forall \varepsilon > 0, \exists \delta > 0 : \forall \theta \in [0,2\pi], \ \forall \rho (0,r] \\$ with $\rho < \delta \ \left\lvert F(\rho, \theta) - l\right\rvert < \varepsilon.$
+    \end{proof}
+
+\end{document}

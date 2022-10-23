@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,scalerel,amsthm}
+\usepackage{derivative}
+\usepackage{mathtools}
+\usepackage{color}
+
+
+\title{Topology}
+\author{Alessio Esposito}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+\maketitle
+
+\begin{definition}
+    $(\mathsf{X}_1, \mathcal{T}_1), \ (\mathsf{X}_2, \mathcal{T}_2)$ topological spaces with $\mathsf{X}_1 \cap \mathsf{X}_2 = \emptyset.$ 
+     \\ let $X = \mathsf{X}_1 \cup \mathsf{X}_2, \mathcal{T} = \{ A_1 \cup A_2 \ | \ A_i \in \mathcal{T}_i \}.$
+\end{definition}
+    \begin{lemma}
+        $(\mathsf{X}, \mathcal{T})$ is a topological space.
+    \end{lemma}
+    
+    \begin{proof}
+        Lets verify the axioms.
+        \begin{enumerate}
+            \item $ \emptyset \in \mathcal{T}_1, \ \emptyset \in \mathcal{T}_2 \Rightarrow \emptyset = \emptyset \cup \emptyset \\ \mathsf{X}_i \in \mathcal{T}_i \Rightarrow \mathsf{X} = \mathsf{X}_1 \cup \mathsf{X}_2 \in \mathcal{T}$
+            \item $\{A\}_{i\in I} \in \mathcal{T} \Rightarrow A_i = A_{1,i} \cup A_{2,i} \\ \bigcup_{i \in I}A_i = \bigcup_{i \in I}(A_{1,i} \cup A_{2,i}) = \bigcup_{i \in I}(A_{1,i}) \cup \bigcup_{i \in I}(A_{2,i}) \in \mathcal{T}_1 \cup \mathcal{T}_2$
+            \item $ A, A' \in \mathcal{T} \Rightarrow A = A_1 \cup A_2, A' = A_1' \cup A_2' \\ A \cap A' = (A_1 \cup A_2) \cap (A_1' \cup A_2') = (A_1 \cap A_1') \cup (A_2 \cap A_2') \in \mathcal{T}  $ 
+        \end{enumerate}
+
+    \end{proof}
+    \begin{definition}
+        $\mathcal{T}$ is defined as a sum of Topologies $\mathcal{T}_1$ and $\mathcal{T}_2$. \\ We notice that $\forall A_i \in \mathcal{T}_i, \ A_i \cup \emptyset \in \mathcal{T}$ so $\mathcal{T}$ contains $\mathcal{T}_1$ and $\mathcal{T}_2.$  
+
+    \end{definition}
+        
+    \begin{definition}
+        $(\mathsf{X}, \mathcal{T})$ topological space $\mathsf{Y} \subseteq \mathsf{X}, \ \mathsf{Y} \neq \emptyset \\ \mathcal{T}_{/Y} = \{ A\cap \mathsf{Y} \ | \ A \in \mathcal{T} \}$ prove that $\mathcal{T}_{/Y}$ is a topology defined as Inducted topology on $Y$
+    \end{definition}
+
+\end{document}
