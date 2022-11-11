@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1666459952 "c:/Users/LuckA/OneDrive/Documenti/Math/Topology/Topology.tex" "Topology.pdf" "Topology" 1666459953
-  "Topology.aux" 1666459953 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "Topology.tex" 1666459951 2208 a9157ae1bba93fc03f1b92920eefae15 ""
-  "c:/Users/LuckA/OneDrive/Documenti/Math/Topology/Topology.tex" 1666459951 2208 a9157ae1bba93fc03f1b92920eefae15 ""
+["pdflatex"] 1667390659 "c:/Users/LuckA/OneDrive/Documenti/Mathematics/Topology/Topology.tex" "Topology.pdf" "Topology" 1667390660
+  "Topology.aux" 1667390660 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "Topology.tex" 1667390658 3205 45cc075ec9d8277a944cf460eaf59ca1 ""
+  "c:/Users/LuckA/OneDrive/Documenti/Mathematics/Topology/Topology.tex" 1667390658 3205 45cc075ec9d8277a944cf460eaf59ca1 ""
   "c:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1666028450 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1666027807 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1666027807 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -39,6 +39,7 @@
   "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1666027807 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1666027808 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1666027808 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1666027808 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1666029038 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2022/texmf-dist/tex/latex/amscls/amsthm.sty" 1666027806 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "c:/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1666027808 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""

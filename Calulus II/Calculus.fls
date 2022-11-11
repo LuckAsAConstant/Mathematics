@@ -293,9 +293,9 @@ INPUT c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
-INPUT ./calculus.aux
-INPUT calculus.aux
-INPUT calculus.aux
+INPUT ./Calculus.aux
+INPUT Calculus.aux
+INPUT Calculus.aux
 OUTPUT Calculus.aux
 INPUT c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -359,11 +359,13 @@ INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT Calculus.pdf
 INPUT c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT calculus.aux
+INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT Calculus.aux
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb

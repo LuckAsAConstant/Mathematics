@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,scalerel,amsthm}
+\usepackage{derivative}
+\usepackage{mathtools}
+\usepackage{color}
+
+
+\title{Spiegazioni}
+\author{Alessio Esposito}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\maketitle
+    \section*{Numeri complessi}
+        l'insieme dei numeri complessi è così definito:
+        \begin{equation*}
+            \mathbb{C} := \{ \big(\begin{smallmatrix} a & b \\ -b & a \end{smallmatrix} \big) : a,b \in \mathbb{R} \}
+        \end{equation*}
+        Da notare come la coppia $(a,b)$ identifica univocamente la matrice $\big(\begin{smallmatrix} a & b \\ -b & a \end{smallmatrix} \big)$, perciò se definiamo $i = (0,1)$ e $1 = (1, 0)$ possiamo concludere che qualsiasi numero reale $a$ può essere nella forma $(a,0)$. \\
+        Per quanto scritto sopra, possiamo definire $\mathbb{C}$ come segue:
+        \begin{equation*}
+            \mathbb{C} := \{ (a,b) : a,b \in \mathbb{R} \}
+        \end{equation*} 
+        Questa definizione porta al seguente lemma:
+       \subsection*{Lemma}
+        L'applicazione $\varsigma : \mathbb{R}^2 \rightarrow \mathbb{C}$ è un isomorfismo
+        \begin{proof}
+            La dimostrazione è banale basta considerare la definizione di $\mathbb{R}^2$.    
+        \end{proof}
+    Bisogna precisare però il fatto che $\mathbb{C}$ è isomorfo a $\mathbb{R}^2$ solo se li si considera come spazi vettoriali, infatti per costruire un isomorfismo tra algebre bisogna definire una nuova struttura come segue:
+    \begin{definition}
+        Il prodotto tra vettori è dato dall'operatore binario: 
+        \begin{equation*}
+            \xi : \mathbb{R}^2 \times \mathbb{R}^2 \rightarrow \mathbb{R}^2
+        \end{equation*}
+        tale che ad ogni coppia $((a,b),(c,d))$ associa il vettore $(ac - bd, bc + ad).$
+
+    \end{definition}
+
+    Consideriamo il numero complesso $z \in \mathbb{C}$ con $z = (a,b)$, con l'operazione appena definita possiamo perciò costruirlo come segue:
+    \begin{equation*}
+        a + ib = (a,0) + (0,1)(b,0) = (a, 0) + (0,b) = (a,b) 
+    \end{equation*}
+        Dotando perciò lo spazio vettoriale di questo prodotto si ottiene la capacità di dividere uno scalare per un vettore di $\mathbb{R}^2$. \\
+        Infatti: 
+        \begin{equation*}
+            \frac{\alpha }{(\beta ,\gamma)} = \alpha (\delta ,\varepsilon) = (\alpha, 0)(\delta ,\varepsilon) = (\alpha \delta, \alpha \varepsilon )
+        \end{equation*}
+
+        Dove $\alpha,\beta,\gamma \in \mathbb{R}^2$ e $(\delta ,\varepsilon) = (\beta, \gamma)^{-1}$. \\
+        Tale inverso esiste perchè definendo così il prodotto abbiamo reso $\mathbb{R}^2$ un campo.
+
+        la definizione di derivata torna ad avere senso.
+\end{document}

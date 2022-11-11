@@ -49,7 +49,7 @@
     \begin{definition}
         Let $\theta \in [0,2\pi]$ and $\forall \rho \in (0,r]$ we define $\varphi_\theta(\rho) = F(\rho, \theta)$ if $\rho \in (0,r], (\rho, 0) \in A^*$ so the $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}}$. \\
         If that limit exists that means $\forall \theta \in [0, 2\pi]$ and $\forall \varepsilon > 0$, $\exists \delta > 0 \ \forall \rho \in (0,r]$ with $\rho < \delta \ \left\lvert \varphi_\theta - l \right\rvert < \varepsilon.$ \\
-        We say that $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}} $ Uniformly With Respect To $(U.W.R.T)$ $\theta.$     
+        We say that $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}} $ Uniformly With Respect To $(U.W.R.T) \ \theta.$     
     \end{definition}
             
     \begin{theorem}
@@ -58,8 +58,77 @@
 
     \begin{proof}
         Let $l \in \bar{\mathbb{R}}. \\$
-        $"\Rightarrow" \ \lim_{(x,y) \to (x_0, y_0)} f(x,y) = l$ so $\forall \varepsilon > 0, \exists \delta > 0: \forall \ (x,y) \in A$ \\ with $\left\lVert (x,y) - (x_0,y_0)\right\rVert < \delta, \ \left\lvert f(x,y) - l \right\rvert < \varepsilon. \\$
-        We have to prove that $\forall \varepsilon > 0, \exists \delta > 0 : \forall \theta \in [0,2\pi], \ \forall \rho (0,r] \\$ with $\rho < \delta \ \left\lvert F(\rho, \theta) - l\right\rvert < \varepsilon.$
+        $"\Longrightarrow" \ \lim_{(x,y) \to (x_0, y_0)} f(x,y) = l$ so $\forall \varepsilon > 0, \exists \delta > 0: \forall \ (x,y) \in A$ \\ with $\left\lVert (x,y) - (x_0,y_0)\right\rVert < \delta, \ \left\lvert f(x,y) - l \right\rvert < \varepsilon. \\ \\$
+        We have to prove that $\forall \varepsilon > 0, \ \exists \delta > 0 : \forall \theta \in [0,2\pi], \ \forall \rho (0,r] \\$ with $\rho < \delta \ \left\lvert F(\rho, \theta) - l\right\rvert < \varepsilon. \\$
+        Let $\varepsilon > 0, \ \theta \in [0,2\pi], \ \rho \in (0,r]$ with $\rho < \delta.$ we create the system that changes the coordinates from cartesians to polars:
+        \begin{equation*}
+            \begin{cases}
+                x = x_0 + \rho \cos(\theta) \\
+                y = y_0 + \rho \sin(\theta) 
+            \end{cases} \rho = \sqrt{(x - x_0)^2 + (y - y_0)^2} 
+        \end{equation*}
+        $\rho \in (0,r], \ \theta \in [0,2\pi] \in (0,r] \times [0,2\pi] \subseteq A^*, \ (\rho,\theta) \in A^* \Rightarrow (x,y) \in A. \\ \\$ 
+        Now $ 0 < \sqrt{(x - x_0)^2 + (y - y_0)^2} = \rho < \delta \Rightarrow \left\lvert f(x,y) - l \right\rvert < \varepsilon. \\ $
+        $\Rightarrow \left\lvert f(x_0 + \rho \cos(\theta), y_0 + \rho \sin(\theta)) - l \right\rvert < \varepsilon \Rightarrow \left\lvert F(\rho, \theta) - l \right\rvert < \varepsilon. \\ \\$
+        $"\Longleftarrow" \ \forall \varepsilon > 0, \exists \delta \leq r : \forall \theta \in [0,2\pi]$ and $\forall \rho$ with $ 0 < \rho < \delta \Rightarrow \\ \left\lvert F(\rho, \theta) - l \right\rvert < \varepsilon. \\$
+        We have to prove that $\forall \varepsilon > 0, \exists \delta > 0, \forall (x,y) \in A$ with \\ $ \sqrt{(x - x_0)^2 + (y - y_0)^2} = \left\lVert (x,y) - (x_0,y_0) \right\rVert  < \delta \Rightarrow \left\lvert f(x,y) - l \right\rvert < \varepsilon. \\ \\$
+        Let $\varepsilon > 0, \ \delta \leq r, \ (x,y) \in A, \ \sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta,$ we switch coordinates with $\rho$ and $\theta$ as follows:
+            \begin{equation*}
+                \begin{cases}
+                    x = x_0 + \rho \cos(\theta) \\
+                    y = y_0 + \rho \sin(\theta)  
+                \end{cases} \rho = \sqrt{(x - x_0)^2 + (y - y_0)^2} 
+            \end{equation*}
+        $0< \rho < \delta \leq r \Rightarrow \rho \in (0,r], \ \theta \in [0,2\pi]. \\$ 
+        We notice that $ \left\lvert F(\rho, \theta) - l \right\rvert < \varepsilon,$ so $ \left\lvert f(x_0 + \rho \cos(\theta), y_0 + \rho \sin(\theta)) - l \right\rvert < \varepsilon \\$
+        $ \Rightarrow  \left\lvert f(x,y) - l \right\rvert < \varepsilon.$
     \end{proof}
+    \begin{definition}
+        We say that $\theta \in [0,2\pi]$ is admissible if $ 0\in \bar{\mathcal{D}}(A_\theta).$
+    \end{definition}
+    \begin{theorem}
+        $\lim_{\rho \to 0} F(\rho, \theta) = l \in \bar{\mathbb{R}} \ U.W.R.T \ \theta \Longleftrightarrow \lim_{\rho \to 0 } \varphi(\rho) = 0.$
+    \end{theorem}
+    \begin{definition}
+        Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open.\\
+        let $(x_0,y_0) \in A$, $\varphi(x) = f(x,y_0)$ and $\psi = f(x_0,y)$.
+        $A$ is open that means that those two functions are well defined. 
+    \end{definition}
+    \begin{definition}
+        We say that $f$ is differentiable with respect to $x$ in $(x_0,y_0)$ if $\varphi$ is differentiable in $x_0$.
+        in that case we $\varphi$ is the partial derivative of $f$ in the variable $x$ and its written $\frac{\partial f}{\partial x}$ 
+    \end{definition}
+    \begin{definition}
+        We define the gradient as $\nabla f : (x,y) \in A \mapsto (\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}) \in \mathbb{R}^2$
+    \end{definition}
+    Obviusly we can generalize to any real vectorial space.
+    \begin{definition}
+        Let be $f : A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ with $A$ Open.
+        Let $\bar{x} \in A$ and let $i \leq n$, we denote as $\varphi_i(x_i) = f(\bar{x}_1, \bar{x}_2, ... ,\bar{x}_{i-1},\bar{x}_i, \bar{x}_{i+1}, ... , \bar{x}_n)$. \
+        Notice that $\bar{x}$ is an internal point so then it exist an interval where $\varphi_i$ is well defined. 
+    \end{definition}
+    \begin{definition}
+        We say that $f$ is partially derivable with respect to the variable $x_i$ in the point $\bar{x}$ if $\varphi_i$ is derivable in that point.
+        We denote as $\frac{\partial f}{\partial x_i}$ the partial derivative with respsect to $x_i$ in the point $\bar{x}$. 
+    \end{definition}
+    \begin{definition}
+        The gradient of a function in $n$ variables is defined as follows:
+        \begin{equation*}
+            \nabla f : \bar{x} \in A \mapsto (\frac{\partial f}{\partial x_1},..., \frac{\partial f}{\partial x_n}) \in \mathbb{R}^n
+        \end{equation*}
+    \end{definition}
+
+    \subsection*{Directional Derivatives}
+    If we take $f : A \subseteq \mathbb{R}^2$ and it's partial derivatives, we can take for example $\frac{\partial f}{\partial x}$ as the direction of the function calculated on the line $y = y_0$..
+    So let a function be defined like the one before and let $(\lambda, \mu) \in \mathbb{R}^2$ with $\sqrt{\lambda^2 + \mu^2} = 1$.
+    Let $r$ the line with the following equations:
+    \begin{equation*}
+        \begin{cases}
+            x = x_0 + \lambda t \\
+            y = y_0 + \mu t
+        \end{cases}
+    \end{equation*}
+    
+    $(x_0, y_0)$ is internal to $A$ so there exists a rectangle $R_0$ of center $(x_0, y_0)$, so every line that passes in this point encounters a segment of the rectangle.
 
 \end{document}

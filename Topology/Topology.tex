@@ -42,5 +42,20 @@
     \begin{definition}
         $(\mathsf{X}, \mathcal{T})$ topological space $\mathsf{Y} \subseteq \mathsf{X}, \ \mathsf{Y} \neq \emptyset \\ \mathcal{T}_{/Y} = \{ A\cap \mathsf{Y} \ | \ A \in \mathcal{T} \}$ prove that $\mathcal{T}_{/Y}$ is a topology defined as Inducted topology on $Y$
     \end{definition}
+    \begin{definition}
+        $(\mathsf{X}, \mathcal{T})$ topological space, $\mathsf{X}$ verifies the second axiom of numerability if posseses a finite base or numerable, in that case $(\mathsf{X}, \mathcal{T})$ is said $\mathcal{N}_2$
+    \end{definition}
+    \begin{proposition}
+        Let $\mathbb{R}$ be gifted by the topology with a base of the following type: 
+        \begin{equation*}
+            [a,b], \ a < b    
+        \end{equation*}
+        Then $(\mathbb{R}, \mathcal{T})$ is not $\mathcal{N}_2$
+    \end{proposition}
+    \begin{proof}
+        Let $\mathcal{B}$ a base for $\mathcal{T}$. Let $a > 0 \in \mathbb{R}$ then $\forall x  \in \mathbb{R}$, there exists $B_x \in \mathcal{B}$ with $x \in B_x \subseteq [x, x + a]$.
+        If $y \in \mathbb{R}$ with $y > x$ then $x \notin [y, y + a]$ so $x \notin B_y$.
+        The application $x\in \mathbb{R} \longmapsto B_x \in \mathcal{B}$  is injective so $ \mathcal{B}$ has the continuum order.    
+    \end{proof}
 
 \end{document}

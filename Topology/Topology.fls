@@ -1,8 +1,8 @@
-PWD c:/Users/LuckA/OneDrive/Documenti/Math/Topology
+PWD c:/Users/LuckA/OneDrive/Documenti/Mathematics/Topology
 INPUT c:/texlive/2022/texmf.cnf
 INPUT c:/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/LuckA/OneDrive/Documenti/Math/Topology/Topology.tex
+INPUT c:/Users/LuckA/OneDrive/Documenti/Mathematics/Topology/Topology.tex
 OUTPUT Topology.log
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -373,3 +373,4 @@ INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
