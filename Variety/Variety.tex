@@ -16,7 +16,7 @@
 \begin{document}
 \maketitle
     \section*{Numeri complessi}
-        l'insieme dei numeri complessi è così definito:
+        L'insieme dei numeri complessi è così definito:
         \begin{equation*}
             \mathbb{C} := \{ \big(\begin{smallmatrix} a & b \\ -b & a \end{smallmatrix} \big) : a,b \in \mathbb{R} \}
         \end{equation*}
@@ -55,4 +55,33 @@
         Tale inverso esiste perchè definendo così il prodotto abbiamo reso $\mathbb{R}^2$ un campo.
 
         la definizione di derivata torna ad avere senso.
+
+    \section*{Topologia dei cerchi e dei rettagoli}
+        Siano $(\mathbb{R}^n, \mathcal{T}_1)$ e $(\mathbb{R}^n, \mathcal{T}_2)$ due spazi topologici, con $\mathcal{T}_1$ la totalità dei cerchi di centro $c \in \mathbb{R}^n$ e di raggio $r \in \mathbb{R}_+$
+        e $\mathcal{T}_2$ la totalità dei rettangoli del tipo: \\ $(x_1,x_2)\times \dots \times (x_{n-1},x_n)$ dove $x_1,\dots ,x_n \in \mathbb{R}$. \\ 
+        segue definizione: 
+
+        \begin{proposition}
+            Sia $\mathcal{B} = \{ B_i \}_{i\in I}$ una base dello spazio topologico $\mathcal{T}_1$ con \\ $B_i = \{ B_\frac{1}{n}(c) : n \in \mathbb{N}, c \in \mathbb{R}^n \}$, Allora vale l'uguaglianza:
+            \begin{equation*}
+                \bigcup_{i \in I} B_i = \bigcup_{j\in J} R_j
+            \end{equation*}
+            dove $R_j$ è la totalità dei rettangoli della topologia $\mathcal{T}_2$ \footnote{Ho preso la totalità di tutti i rettagoli come base del secondo spazio per motivi di praticità, la definizione di base viene comunque rispettata.}.
+        \end{proposition}
+        \begin{proof}
+            ($\supseteq $) $\mathcal{OSS:}$ cominciamo con l'osservare che la diagonale di un rettangolo si ricava in questo modo: $d = \sqrt{h^2 + b^2}$ dove $b$ e $h$ sono rispettivamente base e altezza.
+            Possiamo applicare questo concetto anche a degli intervalli, infatti se un rettangolo in $\mathbb{R}^2$ è definito come $(a,b) \times (c,d)$ basta prendere come base $\left\lvert a - b \right\rvert$ e come altezza $\left\lvert c - d \right\rvert$.
+            Sia perciò $R$ un rettangolo definito in questo modo: $R = (x_1,x_2)\times \dots \times (x_{n-1},x_n)$ tale che, fissato un cerchio della base $\mathcal{B}$ con raggio $\frac{1}{n}$ rispetti la seguente condizione:
+            \begin{equation*}
+                \sqrt{{\left\lvert x_1 - x_2 \right\rvert}^2 + \dots + {\left\lvert x_{n-1} - x_n \right\rvert}^2} < \frac{2}{n}
+            \end{equation*}
+            Dove $\frac{2}{n}$ è il diametro del cerchio. \\ 
+            Con questa condizione possiamo concludere che ogni cerchio contiene un rettangolo. Si può concludere che $\bigcup_{i \in I} B_i \supseteq \bigcup_{j\in J} R_j.$ \\
+            ($\subseteq$) Analogamente al caso precedente possiamo usare concetti geometrici del genere per provare la tesi.
+            Si noti che possiamo prendere un qualsiasi rettangolo tale che venga rispettata questa condizione: 
+            \begin{equation*}
+                \left\lvert x_i - x_{i + 1} \right\rvert \geq \frac{2}{n} \qquad \forall i = 1,\dots , n - 1
+            \end{equation*}
+            con queste considerazioni si può infine affermare che $\bigcup_{i \in I} B_i \subseteq \bigcup_{j\in J} R_j$ e le topologie coincidono, quindi si ha l'asserto.
+         \end{proof}
 \end{document}

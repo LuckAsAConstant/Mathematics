@@ -57,5 +57,25 @@
         If $y \in \mathbb{R}$ with $y > x$ then $x \notin [y, y + a]$ so $x \notin B_y$.
         The application $x\in \mathbb{R} \longmapsto B_x \in \mathcal{B}$  is injective so $ \mathcal{B}$ has the continuum order.    
     \end{proof}
-
+    \section*{Continous functions and homeomorphisms}
+    \begin{definition}
+        Let $(\mathsf{X}, \mathcal{T}_x)$, $(\mathsf{Y}, \mathcal{T}_y)$ be topological spaces, $\varOmega : \mathsf{X} \rightarrow \mathsf{Y}$ is continous in $a\in \mathsf{X}$ if $\forall I $ neighbourhood of $\varOmega(a)$, $\exists K$ neighbourhood of $a$ s.t. $\varOmega(K) \subseteq I.$  
+    \end{definition}
+    We'll say that a function is continous if it is continous in every point.
+    \begin{proposition}
+        Let $\varOmega:(\mathsf{X}, \mathcal{T}_x) \rightarrow (\mathsf{Y}, \mathcal{T}_y)$ so then the following affirmations are equivalent:
+        \begin{itemize}
+            \item[i.] $\varOmega$ is continous.
+            \item[ii.] $\forall A \in \mathcal{T}_y,\ \varOmega^{-1}(A) \in \mathcal{T}_x.$
+            \item[iii.] $\forall c \in \mathcal{C}(\mathsf{Y}), \ \varOmega^{-1}(c) \in \mathcal{C}(\mathsf{X}).$
+            \item[iv.] The counterimages of opens under a selected base of $\mathsf{Y}$ are opens of $\mathsf{X}.$
+            \item[v.] $\forall b = \varOmega(a) \in Im\varOmega = \varOmega(\mathsf{X})$ the counterimage  of every neighbourhood $K'$ of $b$ is a neighbourhood of $a$      
+        \end{itemize}
+        \begin{proof}
+            $i. \Rightarrow ii.$ \ Let $A \in \mathcal{T}_y$ we have to prove that $\forall a \in \varOmega^{-1}(A)$ exists a neighbourhood of $a$ contained in $\varOmega^{-1}(A).$ For $a \in \varOmega^{-1}(A)$ one has $\varOmega(a) \in \varOmega(\varOmega^{-1}(A)) = A.\ A$ is open and is a neighbourhood of $\varOmega(a)$ so if $\varOmega$ is continous there exists a neighbourhood $K$ of $a$ s.t. 
+            $\varOmega(K) \subseteq A$ hence $K \subseteq \varOmega^{-1}(A)$ and $a \in K.$ \\
+            $ii. \Rightarrow i.$ Let $a \in \mathsf{X}, \ I$ neighbourhood of $\varOmega(a)$ let $A \in \mathcal{T}_y$ s.t. $\varOmega(a) \in A \subseteq K$ for the $ii.$ $\varOmega^{-1}(A)$ is open and is a neighbourhood of $a$ s.t. its image contains $\varOmega(a)$ and $A$ is contained in $I$.
+        \end{proof}
+    \end{proposition}
+    
 \end{document}
