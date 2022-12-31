@@ -187,12 +187,19 @@
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open. Let's suppose that $\exists$ the partial derivatives $\frac{\partial^2 f}{\partial x \partial y}$ and $\frac{\partial^2 f}{\partial y \partial x}$ continous in a point $(x_0,y_0) \in A$. So then $\frac{\partial^2 f (x_0,y_0)}{\partial x \partial y} = \frac{\partial^2 f (x_0,y_0)}{\partial y \partial x}$.
         \end{theorem}
         \begin{definition}
-            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, we say that $(x_0,y_0) \in A$ is maxima (minima) for $f$ if $\forall (x,y) \in A, \ f(x,y) \leqslant f(x_0,y_0) \ (f(x,y) \geqslant f(x_0,y_0))$. 
+            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, we say that $(x_0,y_0) \in A$ is maxima (minima) for $f$ if $\forall (x,y) \in A, \ f(x,y) \leqslant f(x_0,y_0)$ \ ($f(x,y) \geqslant f(x_0,y_0)$). 
         \end{definition}
         \begin{theorem}
             If $f$ is continous and $A$ is compact, $f$ admits minima and maxima.
         \end{theorem}
         \begin{theorem}
-            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and let $(x_0,y_0)$ an extreme relative in A
+            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and let $(x_0,y_0) \in \dot{A}$ a relative extreme and let  $f$ be partially derivable in $(x_0,y_0)$, so then $\frac{\partial f(x_0,y_0)}{\partial x} = 0$ and $\frac{\partial f(x_0,y_0)}{\partial y} = 0$. \\
+            The points where the partial derivatives are $0$ are said "critical points" of $f$, $(x_0,y_0) \in \dot{A}$ is an extreme ralative $\Rightarrow$ $(x_0,y_0)$ is a critical point for $f$ ($\nLeftarrow$).         
+        \end{theorem}
+        \begin{theorem}
+            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and let $(x_0,y_0) \in \dot{A}$ a relative extreme $\Longrightarrow \mathcal{H}(x_0,y_0) \geqslant 0$.
+        \end{theorem}
+        \begin{theorem}
+            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, $f \in \mathbf{C}^2$. Let $(x_0,y_0) \in \dot{A}$ a critical point and lets suppose that $\mathcal{H}(x_0,y_0) > 0 \Longrightarrow (x_0,y_0)$ is a relative extreme and is maximum or minimum depending on $\frac{\partial^2 f(x_0,y_0)}{\partial x^2}$ be $<0$ or $>0$.  
         \end{theorem}
 \end{document}
