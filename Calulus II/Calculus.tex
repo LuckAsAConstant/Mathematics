@@ -13,7 +13,7 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{definition}{Definition}
 \newtheorem{corollary}{Corollary}
-
+\newtheorem{observation}{Obs}
 
 
 \begin{document}
@@ -50,13 +50,13 @@
     \end{proof}
         
     \begin{definition}
-        Let $\theta \in [0,2\pi]$ and $\forall \rho \in (0,r]$ we define $\varphi_\theta(\rho) = F(\rho, \theta)$ if $\rho \in (0,r], (\rho, 0) \in A^*$ so the $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}}$. \\
+        Let $\theta \in [0,2\pi]$ and $\forall \rho \in (0,r]$ we define $\varphi_\theta(\rho) = F(\rho, \theta)$ if $\rho \in (0,r], (\rho, \theta) \in A^*$ so the $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}}$. \\
         If that limit exists that means $\forall \theta \in [0, 2\pi]$ and $\forall \varepsilon > 0$, $\exists \delta > 0 \ \forall \rho \in (0,r]$ with $\rho < \delta \ \left\lvert \varphi_\theta - l \right\rvert < \varepsilon.$ \\
-        We say that $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}} $ Uniformly With Respect To $(U.W.R.T) \ \theta.$     
+        We say that $\lim_{\rho \to 0} \varphi(\rho) = l \in \bar{\mathbb{R}} $ Uniformly With Respect To $(U.W.R.T.) \ \theta.$     
     \end{definition}
             
     \begin{theorem}
-        Let $f:A\subseteq \mathbb{R}^2 \rightarrow \mathbb{R} $ with $(x_0,y_0)$ accumulation point for $A.$ \\ Follows the equivalence: \\ $\lim_{(x,y) \to (x_0,y_0)} f(x,y) = l \in \bar{\mathbb{R}} \Longleftrightarrow \lim_{\rho \to 0} F(\rho, \theta ) = l \ U.W.R.T \ \theta.$ 
+        Let $f:A\subseteq \mathbb{R}^2 \rightarrow \mathbb{R} $ with $(x_0,y_0)$ accumulation point for $A.$ \\ Follows the equivalence: \\ $\lim_{(x,y) \to (x_0,y_0)} f(x,y) = l \in \bar{\mathbb{R}} \Longleftrightarrow \lim_{\rho \to 0} F(\rho, \theta ) = l \ U.W.R.T. \ \theta.$ 
     \end{theorem}
 
     \begin{proof}
@@ -90,10 +90,19 @@
         We say that $\theta \in [0,2\pi]$ is admissible if $ 0\in \bar{\mathcal{D}}(A_\theta).$
     \end{definition}
     \begin{theorem}
-        $\lim_{\rho \to 0} F(\rho, \theta) = l \in \bar{\mathbb{R}} \ U.W.R.T \ \theta \Longleftrightarrow \lim_{\rho \to 0 } \varphi(\rho) = 0.$
+        $\lim_{\rho \to 0} F(\rho, \theta) = l \in \bar{\mathbb{R}} \ U.W.R.T. \ \theta \Longleftrightarrow \lim_{\rho \to 0 } \varphi(\rho) = 0.$
     \end{theorem}
     \begin{corollary}
-        $\lim_{\rho \to 0} F(\rho, \theta) = l \in \bar{\mathbb{R}} \ U.W.R.T \ \theta \Longleftrightarrow \exists$ a function $\psi(\rho)$ such that $\lim_{\rho \to 0} \psi(\rho) = 0$ and $\forall \theta \ \left\lvert F(\rho, \theta) - l\right\rvert \leqslant \psi(\rho).$
+        $\lim_{\rho \to 0} F(\rho, \theta) = l \in \bar{\mathbb{R}} \ U.W.R.T. \ \theta \Longleftrightarrow \exists$ a function $\psi(\rho)$ such that $\lim_{\rho \to 0} \psi(\rho) = 0$ and $\forall \theta \ \left\lvert F(\rho, \theta) - l\right\rvert \leqslant \psi(\rho).$
+    \end{corollary}
+    \begin{corollary}
+        Let's suppose that $\lim_{\rho \to 0} F(\rho, \theta) = +\infty. \\ \forall \rho \in (0,r]$ let $h(\rho) = inf\{F(\rho, \theta) : \theta \in [0,2\pi] \}$ so then $\lim_{\rho \to 0} F(\rho, \theta) = +\infty \ U.W.R.T. \ \theta \Longleftrightarrow \lim_{\rho \to 0} h(\rho) = +\infty $
+    \end{corollary}
+    \begin{observation}
+        $\lim_{\rho \to 0} F(\rho, \theta) = +\infty \ U.W.R.T. \ \theta \Longleftrightarrow \exists$ a function $K(\rho) \ s.t. \\ \lim_{\rho \to 0}K(\rho) = +\infty$ and $F(\rho,\theta) \geq K(\rho)$ 
+    \end{observation}
+    \begin{corollary}
+        Let's suppose that $\lim_{\rho \to 0} F(\rho, \theta) = -\infty. \\ \forall \rho \in (0,r]$ let $g(\rho) = sup\{F(\rho, \theta) : \theta \in [0,2\pi] \}$ so then $\lim_{\rho \to 0} F(\rho, \theta) = -\infty \ U.W.R.T. \ \theta \Longleftrightarrow \lim_{\rho \to 0} g(\rho) = -\infty$
     \end{corollary}
     \begin{definition}
         Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open.\\
@@ -113,7 +122,7 @@
     \begin{definition}
         The gradient of a function in $n$ variables is defined as follows:
         \begin{equation*}
-            \nabla f : \bar{x} \in A \mapsto  \left( \frac{\partial f}{\partial x_1},..., \frac{\partial f}{\partial x_n} \right)  \in \mathbb{R}^n
+            \nabla f : \bar{x} \in A \longmapsto  \left( \frac{\partial f}{\partial x_1},..., \frac{\partial f}{\partial x_n} \right)  \in \mathbb{R}^n
         \end{equation*}
     \end{definition}
     \subsubsection*{The case of two variables}
@@ -123,7 +132,7 @@
         in that case we $\varphi$ is the partial derivative of $f$ in the variable $x$ and its written $\frac{\partial f}{\partial x}$ 
     \end{definition}
     \begin{definition}
-        We define the gradient as $\nabla f : (x,y) \in A \mapsto \left( \frac{\partial f}{\partial x},\frac{\partial f}{\partial y} \right) \in \mathbb{R}^2$
+        We define the gradient as $\nabla f : (x,y) \in A \longmapsto \left( \frac{\partial f}{\partial x},\frac{\partial f}{\partial y} \right) \in \mathbb{R}^2$
     \end{definition}
     \begin{definition}
         We say that $f$ is differentiable in the point $(x_0, y_0)$ if exists $a,b \in \mathbb{R}$ such that:
@@ -196,6 +205,9 @@
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and let $(x_0,y_0) \in \dot{A}$ a relative extreme and let  $f$ be partially derivable in $(x_0,y_0)$, so then $\frac{\partial f(x_0,y_0)}{\partial x} = 0$ and $\frac{\partial f(x_0,y_0)}{\partial y} = 0$. \\
             The points where the partial derivatives are $0$ are said "critical points" of $f$, $(x_0,y_0) \in \dot{A}$ is an extreme ralative $\Rightarrow$ $(x_0,y_0)$ is a critical point for $f$ ($\nLeftarrow$).         
         \end{theorem}
+        \begin{observation}
+            Let $(x_0,y_0) \in A$ and let $g(x,y) = f(x,y) - f(x_0,y_0)$, $(x_0,y_0)$ is a relative minimum (relative maximum) for $f \Longleftrightarrow \ \exists$ a circle $C$ of center $(x_0,y_0)$ such that $g \geq 0$ ($g \leq 0$).
+        \end{observation}
         \begin{theorem}
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and let $(x_0,y_0) \in \dot{A}$ a relative extreme $\Longrightarrow \mathcal{H}(x_0,y_0) \geqslant 0$.
         \end{theorem}
