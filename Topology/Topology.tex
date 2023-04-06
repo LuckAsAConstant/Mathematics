@@ -11,36 +11,49 @@
 
 \newtheorem{proposition}{Proposition}
 \newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 
 \begin{document}
 \maketitle
-
 \begin{definition}
-    $(\mathsf{X}_1, \mathcal{T}_1), \ (\mathsf{X}_2, \mathcal{T}_2)$ topological spaces with $\mathsf{X}_1 \cap \mathsf{X}_2 = \emptyset.$ 
+    let $\mathsf{X}$ be a not empty set and $\mathcal{T}$ a collection of its subsets. $\mathcal{T}$ is said topology on $\mathsf{X}$ if it has the following propeties:
+    \begin{itemize}
+        \item $\varnothing, \mathsf{X} \in \mathcal{T}$
+        \item the union of a whatever family of elements of $\mathcal{T}$ is in $\mathcal{T}$. In simbols: $\forall \{A_i \}_{i \in I}, \ A_i \in \mathcal{T}, \ \bigcup_{i \in I}A_i \in \mathcal{T}$  
+        \item the interection of elements of $\mathcal{T}$ is in $\mathcal{T}$: \ $\forall A_1, A_2 \in \mathcal{T}, \ A_1 \cap A_2 \in \mathcal{T} $ 
+    \end{itemize}
+Then $(\mathsf{X},\mathcal{T})$ its said to be topological space and $\mathsf{X}$ is called support. 
+\begin{example}
+    Let $\mathsf{X} = \mathbb{R}^2$ with the euclidean distance and $\forall c \in \mathbb{R}^2$ and $\forall r > 0$ the set $B_r(c) = \{ x \in \mathbb{R}^2 : d(x,c) < r \}$ its said open spherical neighbourhood of center $c$ and radius $r$.
+    Let $\mathcal{T}$ be the totality of all the possible unions of open spherical neighbourhoods. $\mathcal{T}$ is a topology.
+
+\end{example}
+\end{definition}
+\begin{definition}
+    $(\mathsf{X}_1, \mathcal{T}_1), \ (\mathsf{X}_2, \mathcal{T}_2)$ topological spaces with $\mathsf{X}_1 \cap \mathsf{X}_2 = \varnothing.$ 
      \\ let $X = \mathsf{X}_1 \cup \mathsf{X}_2, \mathcal{T} = \{ A_1 \cup A_2 \ | \ A_i \in \mathcal{T}_i \}.$
 \end{definition}
     \begin{lemma}
         $(\mathsf{X}, \mathcal{T})$ is a topological space.
-    \end{lemma}
-    
+    \end{lemma}    
     \begin{proof}
         Lets verify the axioms.
         \begin{enumerate}
-            \item $ \emptyset \in \mathcal{T}_1, \ \emptyset \in \mathcal{T}_2 \Rightarrow \emptyset = \emptyset \cup \emptyset \\ \mathsf{X}_i \in \mathcal{T}_i \Rightarrow \mathsf{X} = \mathsf{X}_1 \cup \mathsf{X}_2 \in \mathcal{T}$
+            \item $ \varnothing \in \mathcal{T}_1, \ \varnothing \in \mathcal{T}_2 \Rightarrow \varnothing = \varnothing \cup \varnothing \\ \mathsf{X}_i \in \mathcal{T}_i \Rightarrow \mathsf{X} = \mathsf{X}_1 \cup \mathsf{X}_2 \in \mathcal{T}$
             \item $\{A\}_{i\in I} \in \mathcal{T} \Rightarrow A_i = A_{1,i} \cup A_{2,i} \\ \bigcup_{i \in I}A_i = \bigcup_{i \in I}(A_{1,i} \cup A_{2,i}) = \bigcup_{i \in I}(A_{1,i}) \cup \bigcup_{i \in I}(A_{2,i}) \in \mathcal{T}_1 \cup \mathcal{T}_2$
             \item $ A, A' \in \mathcal{T} \Rightarrow A = A_1 \cup A_2, A' = A_1' \cup A_2' \\ A \cap A' = (A_1 \cup A_2) \cap (A_1' \cup A_2') = (A_1 \cap A_1') \cup (A_2 \cap A_2') \in \mathcal{T}  $ 
         \end{enumerate}
 
     \end{proof}
     \begin{definition}
-        $\mathcal{T}$ is defined as a sum of Topologies $\mathcal{T}_1$ and $\mathcal{T}_2$. \\ We notice that $\forall A_i \in \mathcal{T}_i, \ A_i \cup \emptyset \in \mathcal{T}$ so $\mathcal{T}$ contains $\mathcal{T}_1$ and $\mathcal{T}_2.$  
+        $\mathcal{T}$ is defined as a sum of Topologies $\mathcal{T}_1$ and $\mathcal{T}_2$. \\ We notice that $\forall A_i \in \mathcal{T}_i, \ A_i \cup \varnothing \in \mathcal{T}$ so $\mathcal{T}$ contains $\mathcal{T}_1$ and $\mathcal{T}_2.$  
 
     \end{definition}
         
     \begin{definition}
-        $(\mathsf{X}, \mathcal{T})$ topological space $\mathsf{Y} \subseteq \mathsf{X}, \ \mathsf{Y} \neq \emptyset \\ \mathcal{T}_{/Y} = \{ A\cap \mathsf{Y} \ | \ A \in \mathcal{T} \}$ prove that $\mathcal{T}_{/Y}$ is a topology defined as Inducted topology on $Y$
+        $(\mathsf{X}, \mathcal{T})$ topological space $\mathsf{Y} \subseteq \mathsf{X}, \ \mathsf{Y} \neq \varnothing \\ \mathcal{T}_{/Y} = \{ A\cap \mathsf{Y} \ | \ A \in \mathcal{T} \}$ prove that $\mathcal{T}_{/Y}$ is a topology defined as Inducted topology on $Y$
     \end{definition}
     \begin{definition}
         $(\mathsf{X}, \mathcal{T})$ topological space, $\mathsf{X}$ verifies the second axiom of numerability if posseses a finite base or numerable, in that case $(\mathsf{X}, \mathcal{T})$ is said $\mathcal{N}_2$
