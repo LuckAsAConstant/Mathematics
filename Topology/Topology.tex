@@ -4,6 +4,7 @@
 \usepackage{derivative}
 \usepackage{mathtools}
 \usepackage{color}
+\usepackage{tikz}
 
 
 \title{Topology}
@@ -14,6 +15,7 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{example}{Example}
 \newtheorem{theorem}{Theorem}
+\newtheorem{obs}{Observation}
 \newtheorem{lemma}{Lemma}
 
 \begin{document}
@@ -122,10 +124,72 @@ Then $(X,\mathcal{T})$ its said to be topological space and $X$ is called suppor
         \end{itemize}
         \begin{proof}
             \subsubsection*{(a)} Let's suppose that $x \in \bar{S}$. If $x \in S$ then the condition is satisfied because every $N\in \mathcal{N}(x)$ contains $x$. If $x\in D(S)$ again, the condition is satisfied because $N\setminus \{x \}\cap S \neq \varnothing $ for all $N\in \mathcal{N}(x)$. So we suppose that the condition of the statement is true, that implies that $x \notin Est(S)$ because $Est(S)\cap S = \varnothing$ and $Est(S)$, since is open, is a neighbourhood of every its point. Therefore $x\in \bar{S.}$
-            \subsubsection*{(b)} Let's suppose that $\{ x_n \}$ is a successor function of elements of $S$ such that $\lim_{x \to \infty} x_n = x$. By definition of limits fo all $N \in \mathcal{N}(x)$ there exist $x_n \in N$ and so the condition of the part $(a)$ is satisfied. So x $x\in \bar{S}$. Let's suppose instead that $x\in \bar{S}$ and let $\{ N_n : n=1,2,\ldots  \}$ be a fundamental system of neighbourhoods of $x$ that satisfies the condition $N_n+1 \subset N_n$ for all $n$. By the $(a)$ for all $n \geq 1$ we can find a point $x_n \in N_n \cap S$. The successor function $\{ x_n \}$ converges to $x$.
+            \subsubsection*{(b)} Let's suppose that $\{ x_n \}$ is a successor function of elements of $S$ such that $\lim_{x \to \infty} x_n = x$. By definition of limit fo all $N \in \mathcal{N}(x)$ there exist $x_n \in N$ and so the condition of the part $(a)$ is satisfied. So $x\in \bar{S}$. Let's suppose instead that $x\in \bar{S}$ and let $\{ N_n : n=1,2,\ldots  \}$ be a fundamental system of neighbourhoods of $x$ that satisfies the condition $N_{n+1} \subset N_n$ for all $n$. By the $(a)$ for all $n \geq 1$ we can find a point $x_n \in N_n \cap S$. The successor function $\{ x_n \}$ converges to $x$.
         \end{proof}
     \end{proposition}
     \newpage
+    \section*{Zarinski's topology}
+        Let $\mathbb{F}$ be a field with $\mathbb{F}^n = \{ (x_1,\dots,x_n) : x_i \in \mathbb{F} \} $ and $\mathbb{F}[X_1,\dots, X_n]$ the ring of the polynomials in the unkowns $X_1,\dots,X_n$. Let $f(\textbf{x}) = f(x_1,\dots,x_n) \in \mathbb{F}[\textbf{X}]$, we define $\mathcal{V}(f) = \{ \textbf{x} \in \mathbb{F}^n : f(\textbf{x}) = 0\}$ as an algebraic varaiety. More in general $\mathfrak{F} = \{ f_i(\textbf{x}) \}_{i \in I}$ and  $\mathcal{V}(\mathfrak{F}) = \{ \textbf{x} \in \mathbb{F}^n : f_i(\textbf{x}) = 0, \forall i\in I \}$
+        \begin{theorem}
+            The totality of all the algebraic varaieties on $\mathbb{F}^n$ satisfy the closed sets axioms.
+            \begin{proof}
+                \subsubsection*{(1)}
+                    $\varnothing \in \mathcal{C}$ because  if we take $f = 1$ then $\mathcal{V}(f) = \varnothing$. Also for $f = 0$ one has $\mathcal{V}(f) = \mathbb{F}^n$
+                \subsubsection*{(2)}
+                    Let $V = \mathcal{V}(\mathfrak{F})$, $W = \mathcal{W}(\mathfrak{G}) \in \mathcal{C}$ with $\mathfrak{F} = \{ f_i \}_{i\in I}$ and $\mathfrak{G} = \{ g_j \}_{j\in J}$.
+                    One has $V \cup W = \{ \textbf{x} \in \mathbb{F}^n : f_i(\textbf{x}) = 0 \vee g_i(\textbf{x}) = 0 \} = \mathcal{V}(\mathfrak{K})$ with $\mathfrak{K} = \{ f_ig_i \}_{i \in I,j\in J}$, infact if $\textbf{x} \in V \cup W$ then $(f_ig_i)(\textbf{x}) = 0$ for all $i$ and $j$ so $V \cup W \subseteq \mathcal{V}(\mathfrak{K})$.
+                    Let $\textbf{x} \in \mathcal{V}(\mathfrak{K})$ and lets suppose that $\textbf{x} \in V$ then there exists $\bar{i} \in I : f_{\bar{i}}(\textbf{x}) \neq 0$ but $\textbf{x} \in \mathcal{V}(\mathfrak{K})$ and that implies $f_{\bar{i}}g_j(\textbf{x}) = 0 \ \forall j \in J$ with $f_{\bar{i}}(\textbf{x}) \neq 0 \Rightarrow g_j(\textbf{x}) = 0 \ \forall j\in J$ that means $\textbf{x} \in W$. we can conclude that $V \cup W \supseteq \mathcal{V}(\mathfrak{K})$ such that $V \cup W = \mathcal{V}(\mathfrak{K})$
+                \subsubsection*{(3)}
+                    Let $\{ \mathcal{V}^{(k)} = \mathcal{V}(\mathfrak{F}^{(k)}) \}_{k \in K}$ a family of $\textbf{a.v.}$ $\mathfrak{F}^{(k)} = \{ f_i^{(k)}\}_{i \in I^{(k)}} \subseteq \mathbb{F}[\textbf{X}]$ and define
+                    $V^{(k)} = \{ \textbf{x} \in \mathbb{F}^n : f_i^{(k)}(\textbf{x}) = 0 \ \forall i \in I^{(k)}\}$ and  $W = \{ \textbf{x} \in \mathbb{F}^n : f_i^{(k)}(\textbf{x}) = 0 \ \forall i \in I^{(k)} \ \forall k \in K \}$, then $W = \bigcup_{k\in K} V^{(k)}$. 
+            \end{proof} 
+        \end{theorem}
+        \begin{proposition}
+            In the Zarinski's topology every point is a closed set. So if $\mathbb{F}$ is finite this topology coincides with the discrete topology on $\mathbb{F}^n$
+            \begin{proof}
+                Let $\textbf{a} = (a_1,\dots,a_n)$ be a point in $\mathbb{F}^n $ and consider $f_i(\textbf{x}) = x_i - a_i, \ \forall i=1,\dots,n$. If $\mathfrak{F} = \{ f_1,\dots,f_n \}$ then $\mathcal{V}(\mathfrak{F}) = \{ \textbf{x} \in \mathbb{F}^n : f_i(\textbf{x}) = 0, \ i=1,\dots,n\} = \{ (a_1,\dots,a_n) \}$. We can observe thtat the union of two points is again a closed set.
+                If $\mathbb{F}$ is a finite field, also $\mathbb{F}^n$ is finite, so if we take a subset $U \in \mathbb{F} \ (U \in \mathbb{F}^n) \Rightarrow U = \bigcup_{p \in U}\{ p\}$ therefore one has $U = \mathbb{F}\setminus (\mathbb{F}\setminus U) \ (U = \mathbb{F}^n\setminus (\mathbb{F}^n\setminus U))$.
+            \end{proof}
+        \end{proposition} 
+        \newpage 
+        \section*{Separation axioms}
+            Let $(X,\mathcal{T})$ be a topological space 
+            \begin{definition}
+                $(X,\mathcal{T})$ is said to be $\mathbf{T}_0$ if $\forall a,b \in X$ with $a \neq b$ there exists a neighbourhood $N_a$ that doesn't contain $b$. 
+                \begin{center}
+                    \begin{tikzpicture}
+                        \draw[thick,dashed] (0,-3) circle (1cm);
+                        \filldraw[black] (0,-3) circle (0.5mm) node[align = center, below] {$a$};
+                        \filldraw[black] (1.5,-3) circle (0.5mm) node[align = center, below] {$b$};
+                    \end{tikzpicture}     
+                \end{center}
+            \end{definition}
+            \begin{definition}
+                $(X,\mathcal{T})$ is said to be $\mathbf{T}_1 $ if $\forall a,b \in X$ with $a \neq b$ if $\exists N_a, N_b$ such that $b \notin N_a$ and $a \notin N_b$ 
+                \begin{center}
+                    \begin{tikzpicture}
+                        \draw[thick,dashed] (0,-3) circle (1cm);
+                        \filldraw[black] (0,-3) circle (0.5mm) node[align = center, below] {$a$};
+                        \draw[thick,dashed] (1.5,-3) circle (1cm);
+                        \filldraw[black] (1.5,-3) circle (0.5mm) node[align = center, below] {$b$};
+                    \end{tikzpicture}     
+                \end{center}
+            \end{definition}
+            \begin{definition}
+                $(X,\mathcal{T})$ is said to be $\mathbf{T}_2 $ if $\exists N_a, N_b$ with $N_a \cap N_b = \varnothing$
+                \begin{center}
+                    \begin{tikzpicture}
+                        \draw[thick,dashed] (0,-3) circle (1cm);
+                        \filldraw[black] (0,-3) circle (0.5mm) node[align = center, below] {a};
+                        \draw[thick,dashed] (2.5,-3) circle (1cm);
+                        \filldraw[black] (2.5,-3) circle (0.5mm) node[align = center, below] {b};
+                    \end{tikzpicture}     
+                \end{center}
+            \end{definition}
+            \begin{obs}
+                In a topological space $\mathbf{T}_2 \Rightarrow \mathbf{T}_1 \Rightarrow \mathbf{T}_0$
+            \end{obs}
+        \newpage
     \section*{Continous functions and homeomorphisms}
     \begin{definition}
         Let $(X, \mathcal{T}_x)$, $(\mathsf{Y}, \mathcal{T}_y)$ be topological spaces, $\varOmega : X \rightarrow \mathsf{Y}$ is continous in $a\in X$ if $\forall I $ neighbourhood of $\varOmega(a)$, $\exists K$ neighbourhood of $a$ s.t. $\varOmega(K) \subseteq I.$  
