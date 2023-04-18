@@ -153,7 +153,7 @@ Then $(X,\mathcal{T})$ its said to be topological space and $X$ is called suppor
         \end{proposition} 
         \newpage 
         \section*{Separation axioms}
-            Let $(X,\mathcal{T})$ be a topological space 
+            Let $(X,\mathcal{T})$ be a topological space.
             \begin{definition}
                 $(X,\mathcal{T})$ is said to be $\mathbf{T}_0$ if $\forall a,b \in X$ with $a \neq b$ there exists a neighbourhood $N_a$ that doesn't contain $b$. 
                 \begin{center}
@@ -189,6 +189,28 @@ Then $(X,\mathcal{T})$ its said to be topological space and $X$ is called suppor
             \begin{obs}
                 In a topological space $\mathbf{T}_2 \Rightarrow \mathbf{T}_1 \Rightarrow \mathbf{T}_0$
             \end{obs}
+            \begin{proposition}
+                Every subspace $Y$ of an Hausdorff ($\mathbf{T}_2$) Space $X$ is again a an Hausdorff space
+                \begin{proof}
+                    If $a$ and $b$ are two distinct points of $Y$ there exist $N_a, N_b$ neighbourhoods of $X$ such that $a \in N_a$ and $b \in N_b$ with $N_a \cap N_b \neq \varnothing$.
+                    Let $N_a^1, N_b^1$ be neighbourhoods of $a$ and $b$ respectively with $N_a^1 = N_a \cap Y$ and $N_b^1 = N_b \cap Y$ by construction we can say $N_a^1 \cap N_b^1 = \varnothing$.
+                 \end{proof}
+            \end{proposition}
+        \newpage
+        \section*{Connected Topological Spaces}
+            \begin{definition}
+                Let $(X, \mathcal{T})$ ba a topological space. $X$ is said Connected if there not exist two open sets of X such that their union is all the space and also the two subsets are disjointed.
+                In symbols: $X$ is connected if \ $\nexists A, A_1 \in \mathcal{T}: A \cup A_1 = X$ with $A \cap A_1 = \varnothing$. 
+            \end{definition}
+            \begin{proposition}
+                Let $(X,\mathcal{T})$ and $a,a_1 \in X$, if there exist a $Y \subseteq X$ connected such that $a,a_1 \in Y \ \Rightarrow X$ is connected. 
+                \begin{proof}
+                    Lets suppose that $X$ is sconnected by $A, A_1 \in \mathcal{T}$ and let $a\in A$ and $a_1 \in A_1$. If we take $Y \subset X$ connected such that $a,a_1 \in Y$. Then $A \cap Y \neq \varnothing$ and $A_1 \cap Y \neq \varnothing$ also $(A \cap Y) \cup (A_1 \cap Y) \subseteq A \cup A_1 \neq \varnothing$. one has $(A \cap Y) \cup (A_1 \cap Y) = (A \cup A_1) \cap Y = X \cap Y = Y$, that implies is connected, but since $a, a_1$ and $Y$ are arbitrary, this is absurd.
+                \end{proof}
+            \end{proposition}
+            \begin{example}
+                Let $\mathbb{R}$ be gifted by the natural topology, then all the connected sets of $\mathbb{R}$ are the intervals: $[a,b], (a,b], [a,b), (a,b)$.
+            \end{example}
         \newpage
     \section*{Continous functions and homeomorphisms}
     \begin{definition}
@@ -210,5 +232,10 @@ Then $(X,\mathcal{T})$ its said to be topological space and $X$ is called suppor
             $ii. \Rightarrow i.$ Let $a \in X, \ I$ neighbourhood of $\varOmega(a)$ let $A \in \mathcal{T}_y$ s.t. $\varOmega(a) \in A \subseteq K$ for the $ii.$ $\varOmega^{-1}(A)$ is open and is a neighbourhood of $a$ s.t. its image contains $\varOmega(a)$ and $A$ is contained in $I$.
         \end{proof}
     \end{proposition}
-    
+    \begin{definition}
+        Let $(X, \mathcal{T}_x)$ and $(Y, \mathcal{T}_y)$ be topological spaces, then $ \varOmega :X \rightarrow Y$ is defined open function (respectively closed function) if for every open subset $A$ of $X$, $\varOmega(A)$ is an open subset (closed subset) of $Y$.  
+    \end{definition}
+    \begin{definition}
+        A function $\varOmega: X \rightarrow Y$ is said to be an homeomorphism if it is continous and $\varOmega,\varOmega^{-1}$ are continous. The two topological spaces are said to be homeomorphic if that application exists and we write: $X \thickapprox Y.$
+    \end{definition}    
 \end{document}
