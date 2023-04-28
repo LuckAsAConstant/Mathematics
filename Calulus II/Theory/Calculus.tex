@@ -82,7 +82,7 @@
                     y = y_0 + \rho \sin(\theta)  
                 \end{cases} \rho = \sqrt{(x - x_0)^2 + (y - y_0)^2} 
             \end{equation*}
-        $0< \rho < \delta \leq r \Rightarrow \rho \in (0,r], \ \theta \in [0,2\pi]. \\$ 
+        $0< \rho < \delta \leq r \Rightarrow \rho \in (0,r), \ \theta \in [0,2\pi]. \\$ 
         We notice that $ \left\lvert F(\rho, \theta) - l \right\rvert < \varepsilon,$ so $ \left\lvert f(x_0 + \rho \cos(\theta), y_0 + \rho \sin(\theta)) - l \right\rvert < \varepsilon \\$
         $ \Rightarrow  \left\lvert f(x,y) - l \right\rvert < \varepsilon.$
     \end{proof}
@@ -155,8 +155,33 @@
         \begin{corollary}
             $f$ is differentiable in the point $(x_0,y_0) \Longleftrightarrow f$ is partially derivable in the point $(x_0,y_0)$ and the $(\vartriangle)$ is true.
         \end{corollary}
+    \newpage
         \begin{theorem}
-            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$. If $\exists \ \frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ in $A$ and are continuos in a point $(x_0,y_0)$, then the function is differentiable in $(x_0,y_0)$. 
+            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$. If $\exists \ \frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ in $A$ and are continuos in a point $(x_0,y_0)$, then the function is differentiable in $(x_0,y_0)$.
+            \begin{proof}
+                We have to prove that:
+                \begin{equation*}
+                    \lim_{(x,y) \to (x_0,y_0)}\frac{f(x,y) - f(x_0,y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} = 0
+                \end{equation*}
+                Lets add and subtract $f(x,y_0)$, so one has:
+                \begin{equation*}
+                    f(x,y) - f(x_0,y_0) = f(x,y) - f(x,y_0) + f(x,y_0) - f(x_0,y_0)
+                \end{equation*} 
+                We call $\varphi (t) = f(x,t)$ where $t \in I[y,y_0]$ and $I[y,y_0] = \begin{cases}
+                    [y,y_0] \ y \leq y_0 \\
+                    [y_0,y] \ y_0 \leq y
+                \end{cases}$ \\
+                $\varphi$ is derivable and for the Lagrange theorem $\exists y_1 \in I[y,y_0] : \varphi (y) - \varphi (y_0) = \dot{\varphi}(y_1)(y-y_0)$. So one has $f(x,y) - f(x,y_0) = \frac{\partial f(x,y_1)}{\partial y}(y-y_0)$, and we repeat the same reasoning for the other variable and one will have $f(x,y_0) - f(x_0,y_0) = \frac{\partial f(x_1,y_0)}{\partial x}(x-x_0)$
+                We have then: 
+                    \begin{gather*}
+                        \left\lvert \frac{f(x,y) - f(x_0,y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\ = \left\lvert \frac{\frac{\partial f(x_1,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x,y_1)}{\partial y}{(y-y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\ = \left\lvert \frac{\left(\frac{\partial f (x_1,y_0)}{\partial x} - \frac{\partial f (x_0,y_0)}{\partial x} \right)(x-x_0) + \left( \frac{\partial f (x,y_1)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x}\right)(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}}\right\rvert  
+                    \end{gather*}
+                The last member is increased by the following:
+                    \begin{gather*}
+                        \left\lvert \frac{\partial f(x_1,y_0)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x} \right\rvert \frac{\left\lvert x - x_0\right\rvert}{\left\lVert (x-x_0,y-y_0)\right\rVert } + \left\lvert \frac{\partial f(x,y_1)}{\partial y} - \frac{\partial f(x_0,y_0)}{\partial y}\right\rvert \\ \frac{\left\lvert y - y_0\right\rvert}{\left\lVert (x-x_0,y-y_0) \right\rVert } \leq \left\lvert \frac{\partial f(x_1,y_0)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x} \right\rvert + \left\lvert \frac{\partial f(x,y_1)}{\partial y} - \frac{\partial f(x_0,y_0)}{\partial y}\right\rvert
+                    \end{gather*}
+                And since $x \to x_0 \Rightarrow x_1 \to x_0$ and $y \to y_1 \Rightarrow y_1 \to y_0$ so the second member of the inequality is equal to zero.
+            \end{proof}
         \end{theorem}
     \end{definition}
     \begin{theorem} %$\left( \diamondsuit \right)$ 

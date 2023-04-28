@@ -142,7 +142,7 @@ Then $(X,\mathcal{T})$ its said to be topological space and $X$ is called suppor
                     Let $\textbf{x} \in \mathcal{V}(\mathfrak{K})$ and lets suppose that $\textbf{x} \in V$ then there exists $\bar{i} \in I : f_{\bar{i}}(\textbf{x}) \neq 0$ but $\textbf{x} \in \mathcal{V}(\mathfrak{K})$ and that implies $f_{\bar{i}}g_j(\textbf{x}) = 0 \ \forall j \in J$ with $f_{\bar{i}}(\textbf{x}) \neq 0 \Rightarrow g_j(\textbf{x}) = 0 \ \forall j\in J$ that means $\textbf{x} \in W$. we can conclude that $V \cup W \supseteq \mathcal{V}(\mathfrak{K})$ such that $V \cup W = \mathcal{V}(\mathfrak{K})$
                 \subsubsection*{(3)}
                     Let $\{ \mathcal{V}^{(k)} = \mathcal{V}(\mathfrak{F}^{(k)}) \}_{k \in K}$ a family of $\textbf{a.v.}$ $\mathfrak{F}^{(k)} = \{ f_i^{(k)}\}_{i \in I^{(k)}} \subseteq \mathbb{F}[\textbf{X}]$ and define
-                    $V^{(k)} = \{ \textbf{x} \in \mathbb{F}^n : f_i^{(k)}(\textbf{x}) = 0 \ \forall i \in I^{(k)}\}$ and  $W = \{ \textbf{x} \in \mathbb{F}^n : f_i^{(k)}(\textbf{x}) = 0 \ \forall i \in I^{(k)} \ \forall k \in K \}$, then $W = \bigcup_{k\in K} V^{(k)}$. 
+                    $V^{(k)} = \{ \textbf{x} \in \mathbb{F}^n : f_i^{(k)}(\textbf{x}) = 0 \ \forall i \in I^{(k)}\}$ and  $W = \{ \textbf{x} \in \mathbb{F}^n : f_i^{(k)}(\textbf{x}) = 0 \ \forall i \in I^{(k)} \ \forall k \in K \}$, then $W = \bigcap_{k\in K} V^{(k)}$. 
             \end{proof} 
         \end{theorem}
         \begin{proposition}
@@ -218,8 +218,8 @@ Then $(X,\mathcal{T})$ its said to be topological space and $X$ is called suppor
                     Lets suppose that $\overline{Y}$ is disconnected and lets suppose that $\exists A_1,A_2 \in \mathcal{T}$ such that:
                     \begin{itemize}
                         \item[1.] $A_1 \cap \overline{Y}, A_2 \cap \overline{Y} \neq \varnothing$
-                        \item[2.] $\left( A_1 \cap \overline{Y} \right) \cap \left( A_1 \cap \overline{Y} \right) = \varnothing$
-                        \item[3.] $\left( A_1 \cap \overline{Y} \right) \cup \left( A_1 \cap \overline{Y} \right) = \overline{Y}$   
+                        \item[2.] $\left( A_1 \cap \overline{Y} \right) \cap \left( A_2 \cap \overline{Y} \right) = \varnothing$
+                        \item[3.] $\left( A_1 \cap \overline{Y} \right) \cup \left( A_2 \cap \overline{Y} \right) = \overline{Y}$   
                     \end{itemize}
                     It can be proven that $A_1$ and $A_2$ disconnect $Y$, infact $\overline{Y} = Y \cup \partial Y$ \footnote{$\partial Y = D(Y)$} and if $A_1 \cap Y = \varnothing$ then $\exists a \in \partial Y$ such that the neighbourhood $A_1$ would have null intersection with $Y$, but that is impossible,
                     so $A_1 \cap Y$. The same reasoning can be applied to $A_2 \cap Y$. We also have 2. $\Rightarrow \left( A_1 \cap Y \right) \cap \left( A_1 \cap Y \right) = \varnothing$, therefore 3. $\Rightarrow \left( A_1 \cap Y \right) \cup \left( A_1 \cap Y \right) \Rightarrow A_1 \cap \overline{Y} = \left( A_1 \cap Y \right) \cup \left( A_1 \cap \partial Y \right) \Rightarrow \left( A_1 \cap \overline{Y} \right) \cup \left( A_2 \cap \overline{Y} \right) = \left( A_1 \cap Y \right) \cup \left( A_2 \cap Y \right) \cup \left( \left( A_1 \cup A_2 \right) \cap \partial Y \right)$ but that means $Y \cap \partial Y \Rightarrow Y = \left( A_1 \cap Y \right) \cup \left( A_2 \cap Y \right)$.
