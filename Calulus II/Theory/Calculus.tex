@@ -10,10 +10,11 @@
 \author{Alessio Esposito}
 
 \newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
 \newtheorem{observation}{Obs}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{schwarztheorem}{Theorem (Schwartz)}
 
 
 \begin{document}
@@ -128,7 +129,6 @@
             \nabla f : \bar{x} \in A \longmapsto  \left( \frac{\partial f}{\partial x_1},..., \frac{\partial f}{\partial x_n} \right)  \in \mathbb{R}^n
         \end{equation*}
     \end{definition}
-    \subsubsection*{The case of two variables}
     Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open, and let $(x_0,y_0) \in A$. \\ $(x_0,y_0, f(x_0,y_0)) \in \mathcal{G}(f)$. The equation of the plane that passes for \\ $(x_0,y_0, f(x_0,y_0))$ is $Z = f(x_0,y_0) + a(X-x_0) + b(Y-y_0)$ where $a,b \in \mathbb{R}$.
     \begin{definition}
         We say that $f$ is partially derivable with respect to $x$ in $(x_0,y_0)$ if $\varphi$ is differentiable in $x_0$.
@@ -148,8 +148,14 @@
         \end{proposition}
         \begin{definition}
             if $f$ is differentiable in a point $(x,y) \in A$, the differential in the point is defined as follows:
-            \begin{equation*}
+            \begin{gather*}
                 d_{(x,y)}f:(h,k) \in \mathbb{R}^2 \longmapsto \frac{\partial f(x,y)}{\partial x}h + \frac{\partial f(x,y)}{\partial y}k \in \mathbb{R}
+            \end{gather*}
+        \end{definition}
+        \begin{definition}
+            More in general if $f:A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ and \textbf{x} $\in A$:
+            \begin{equation*}
+                d_{\textbf{x}}^rf:h \in \mathbb{R}^n \longmapsto \sum_{\substack{i_1, \dots, i_n \geq 0 \\ i_1 + \dots + i_n = r}}\frac{r!}{i_1! \dots i_n!}\frac{\partial ^r f}{\partial x^{i_1} \dots \partial x^{i_n}}(\textbf{x}) h^{i_1}_1, \dots,h^{i_n}_n  \in \mathbb{R}
             \end{equation*}
         \end{definition}
         \begin{corollary}
@@ -174,7 +180,7 @@
                 $\varphi$ is derivable and for the Lagrange theorem $\exists y_1 \in I[y,y_0] : \varphi (y) - \varphi (y_0) = \dot{\varphi}(y_1)(y-y_0)$. So one has $f(x,y) - f(x,y_0) = \frac{\partial f(x,y_1)}{\partial y}(y-y_0)$, and we repeat the same reasoning for the other variable and one will have $f(x,y_0) - f(x_0,y_0) = \frac{\partial f(x_1,y_0)}{\partial x}(x-x_0)$
                 We have then: 
                     \begin{gather*}
-                        \left\lvert \frac{f(x,y) - f(x_0,y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\ = \left\lvert \frac{\frac{\partial f(x_1,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x,y_1)}{\partial y}{(y-y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\ = \left\lvert \frac{\left(\frac{\partial f (x_1,y_0)}{\partial x} - \frac{\partial f (x_0,y_0)}{\partial x} \right)(x-x_0) + \left( \frac{\partial f (x,y_1)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x}\right)(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}}\right\rvert  
+                        \left\lvert \frac{f(x,y) - f(x_0,y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\  \left\lvert \frac{\frac{\partial f(x_1,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x,y_1)}{\partial y}{(y-y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\  \left\lvert \frac{\left(\frac{\partial f (x_1,y_0)}{\partial x} - \frac{\partial f (x_0,y_0)}{\partial x} \right)(x-x_0) + \left( \frac{\partial f (x,y_1)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x}\right)(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}}\right\rvert  
                     \end{gather*}
                 The last member is increased by the following:
                     \begin{gather*}
@@ -187,6 +193,25 @@
     \begin{theorem} %$\left( \diamondsuit \right)$ 
         Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open. If the function is differentiable in a point $(x_0,y_0) \in A$ then is continuos in that point.
     \end{theorem}
+    \newpage
+    \begin{schwarztheorem}
+        \footnote{$\Omega$ this time is used instead of $A$} Let $f:\Omega \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ be a function in two variables defined on a open set $\Omega$. \\ If $f$ admits continous second derivatives in the point ($f \in C^2(\Omega)$) then $\frac{\partial ^2 f}{\partial x \partial y} = \frac{\partial ^2 f}{\partial y \partial x}$.
+        \begin{proof}
+            Let $p = (x_0,y_0) \in \Omega$ and chose two real numbers $\varepsilon,\delta > 0$ such that $(x_0 - \varepsilon, x_0 + \delta) \times (y_0 - \delta, y_0 + \delta) \subset \Omega$. That is possible since $\Omega$ is Open.
+            Lets also define the two functions $F$ and $G$ as follows: 
+            \begin{flalign*}
+                F: (-\varepsilon,\varepsilon) \subset \mathbb{R} \rightarrow \mathbb{R} \\
+                G: (-\delta,\delta) \subset \mathbb{R} \rightarrow \mathbb{R}
+            \end{flalign*}
+            In the way that:
+            \begin{flalign*}
+                F(t) = f(x_0 + t, y_0 + s) - f(x_0 + t,y_0) \ \ \forall s \in (- \delta, \delta) \\
+                G(s) = f(x_0 + t, y_0 + s) - f(x_0,y_0 + s) \ \ \forall t \in (-\varepsilon, \varepsilon)
+            \end{flalign*}
+            It can be easily proved that: $F(t) - F(0) = G(s) - G(0)$ also if we apply the Lagrange theorem two times one has: $F(t) - F(0) = t\Dot{F}(\xi_1)$ with $t\Dot{F}(\xi_1)$ equal to: $t \left[ \frac{\partial f}{\partial x}(x_0 + \xi_1, y_0 + s) - \frac{\partial f}{\partial x}(x_0 + \xi_1,y_0) \right] = ts\frac{\partial ^2 f}{\partial y \partial x}(x_0 + \xi_1, y_0 + \sigma_1)$. The same reasoning can be applied to $G(s) - G(0)$ obtaining: $st\frac{\partial ^2 f}{\partial x \partial y}(x_0 + \xi_2, y_0 + \sigma_2)$ with $\xi_i \in (0,t)$ and $\sigma_i \in (0,s)$ where without loss of generality we can say $t,s > 0$. \\
+            Thinking about $t \rightarrow 0$ and $s \rightarrow 0 \Rightarrow \xi_i \rightarrow 0$ and $\sigma_i \rightarrow 0$ with the continuity of the two derivatives one has: $\frac{ \partial ^2 f}{\partial y \partial x}(x_0,y_0) = \frac{ \partial ^2 f}{\partial x \partial y}(x_0,y_0)$.
+        \end{proof}
+    \end{schwarztheorem}
     \subsection*{Directional Derivatives}
     If we take $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and it's partial derivatives, we can take for example $\frac{\partial f}{\partial x}$ as the direction of the function calculated on the line $y = y_0$.
     So let a function be defined like the one before and let $(\lambda, \mu) \in \mathbb{R}^2$ with $\sqrt{\lambda^2 + \mu^2} = 1$.
@@ -220,9 +245,6 @@
             \end{matrix} \right\rvert 
         \end{equation*} and is called the Hessian determinant.
         \end{definition}
-        \begin{theorem}
-            Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open. Let's suppose that $\exists$ the partial derivatives $\frac{\partial^2 f}{\partial x \partial y}$ and $\frac{\partial^2 f}{\partial y \partial x}$ continous in a point $(x_0,y_0) \in A$. So then $\frac{\partial^2 f (x_0,y_0)}{\partial x \partial y} = \frac{\partial^2 f (x_0,y_0)}{\partial y \partial x}$.
-        \end{theorem}
         \begin{definition}
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, we say that $(x_0,y_0) \in A$ is maxima (minima) for $f$ if $\forall (x,y) \in A, \ f(x,y) \leqslant f(x_0,y_0)$ \ ($f(x,y) \geqslant f(x_0,y_0)$). 
         \end{definition}

@@ -26,29 +26,27 @@
         \end{flalign*}
         Where $r = <\vec{a}(l,m,n)>$ and $r_1 = <\vec{a_1}(l_1,m_1,n_1)>$ passing through $Q$ and $Q_1$
     \subsection*{Common perpendicular between two lines}
-        \begin{flalign*}
+        \begin{gather*}
             \begin{vmatrix}
                 X - a & Y - b & Z - c \\
                 \beta_1 & \beta_2 & \beta_3 \\
                 l & m & n
-            \end{vmatrix} = 0
-        \end{flalign*}
-        \begin{flalign*}
+            \end{vmatrix} = 0 \\
             \begin{vmatrix}
                 X - a_1 & Y - b_1 & Z - c_1 \\
                 \beta_1 & \beta_2 & \beta_3 \\
                 l_1 & m_1 & n_1
             \end{vmatrix} = 0
-        \end{flalign*}
+        \end{gather*}
         Where $<\beta_1,\beta_2,\beta_3> = <\vec{a}\land\vec{a_1}>$ \\
     % Given a plane $\pi$, a point $P_0\equiv(x_0,y_0,z_0)$ and a line $r$ one has the following:
     \subsection*{Distance between a plane and a point}
         \begin{flalign*}
-            d(P_0,\pi)=\frac{|Ax_0 + By_0+ Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}} \ P_0\equiv(x_0,y_0,z_0)
+            d(P_0,\pi)=\frac{|Ax_0 + By_0+ Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}_{P_0\equiv(x_0,y_0,z_0)}
         \end{flalign*}
     \subsection*{Distance between a point and a line}
         \begin{flalign*}
-            d(P_0,r) = \frac{\begin{vmatrix}y_0 - b & z_0 - c \\ m & n \end{vmatrix}^2 + \begin{vmatrix}x_0 - a & z_0 - c \\ l & n\end{vmatrix}^2 + \begin{vmatrix}x_0 - a & y_0 - b \\ l & m\end{vmatrix}^2}{\sqrt{l^2 + m^2 + n^2}} \ P_0\equiv(x_0,y_0,z_0)
+            d(P_0,r) = \frac{\begin{vmatrix}y_0 - b & z_0 - c \\ m & n \end{vmatrix}^2 + \begin{vmatrix}x_0 - a & z_0 - c \\ l & n\end{vmatrix}^2 + \begin{vmatrix}x_0 - a & y_0 - b \\ l & m\end{vmatrix}^2}{\sqrt{l^2 + m^2 + n^2}}_{\ P_0\equiv(x_0,y_0,z_0)}
         \end{flalign*}
     \subsection*{Angle between two planes}
         \begin{flalign*}
@@ -58,5 +56,63 @@
         \begin{flalign*}
             \sin\varphi = \frac{Al + Bm + Cn}{\sqrt{A^2 + B^2 + C^2}\sqrt{l^2 + m^2 + n^2}}     
         \end{flalign*}
+        \newpage
+    \subsection*{Plane passing for three points}
+        \begin{flalign*}
+            \pi = \begin{vmatrix}
+                X - x_0 & Y - y_0 & Z - z_0 \\ x_1 - x_0 & y_1 - y_0 & z_1 - z_0 \\ x_2 - x_0 & y_2 - y_0 & z_2 - z_0
+            \end{vmatrix}=0_{\ P_0 \equiv (x_0,y_0,z_0),P_1 \equiv (x_1,y_1,z_1), P_2 \equiv (x_2,y_2,z_2)} 
+        \end{flalign*}
+        
+    \subsection*{Parametric equations of a plane}
+        \begin{gather*}
+            x = q_1 + a_1u + b_1v \\
+            y = q_2 + a_2u + b_2v \\
+            z = q_3 + a_3u + b_3v
+        \end{gather*}
+        Where $\left\{ \vec{a}(a_1,a_2,a_3), \vec{b}(b_1,b_2,b_3)  \right\}$ is the basis and $Q\equiv(q_1,q_2,q_3)$ is a point      
+        
+    \subsection*{Cartesian equation of a plane}
+        \begin{flalign*}
+            \begin{vmatrix}
+                X - q_1 & Y-q_2 & Z-q_3 \\
+                a_1 & a_2 & a_3 \\
+                b_1 & b_2 & b_3
+            \end{vmatrix} = 0
+        \end{flalign*}
+        With $A = \begin{vmatrix} a_2 & a_3 \\ b_2 & b_3 \end{vmatrix}$, $B = -\begin{vmatrix} a_1 & a_3 \\ b_1 & b_3 \end{vmatrix}$, $C = \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix}$ one has the following:
+        \begin{equation*}
+            A\left( X - q_1 \right) + B\left( Y - q_2 \right) + C\left( Z - q_3 \right) = 0
+        \end{equation*}
+    \subsection*{Directional vector of a line}
+        \begin{gather*}
+            r =\begin{cases}
+                AX + BY + CZ + D = 0 \\
+                A'X + B'Y + C'Z + D' = 0
+            \end{cases} \\
+            l = \begin{vmatrix}
+                B & C \\ B' & C'
+            \end{vmatrix}, \
+            m = - \begin{vmatrix}
+                A & C \\ A' & C'
+            \end{vmatrix}, \
+            n = \begin{vmatrix}
+                A & B \\ A' & B'
+            \end{vmatrix}    
+        \end{gather*}
+    \subsection*{Cartesian equations of a line}
+        \begin{flalign*}
+            \left(\begin{matrix}
+                X-a & Y-b &Z-c \\
+                l & m & n
+            \end{matrix}\right)_{Q\equiv (a,b,c), \vec{v}(l,m,n)}
+        \end{flalign*}
+        The equatons are the minors of the above matrix equal to zero:
+        \begin{gather*}
+            m\left( X - a \right) - l\left( Y - b\right) = 0 \\
+            n\left( X - a \right) - l\left( Z - c\right) = 0  
+        \end{gather*}
+        
+
 
 \end{document}

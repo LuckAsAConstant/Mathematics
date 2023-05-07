@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,scalerel,amsthm}
+\usepackage{derivative}
+\usepackage{mathtools}
+\usepackage{color}
+
+\begin{document}
+    \section*{Monomi}
+        \begin{itemize}
+            \item $ax$
+            \item $axy$
+            \item $ax^2$
+            \item $axy^3$
+            \item $axyz$
+        \end{itemize}
+    esempio con i numeri: $5xy$
+
+    \section*{Polinomi}
+        \begin{itemize}
+            \item $ax^2 + bx + c$
+            \item $ax^3 + bx^2 + cx + d$
+            \item $axy^2 - c$
+            \item $ax^3 + cx - d$
+            \item $axyz^3 + bxy + cz$
+        \end{itemize}
+        Il mononio con il grado piu alto determina il grado del polinomio \\
+        esempio: $5xyz^3 + 6y^3 - 7z$ e' di grado $3$
+    \section*{Operazioni}
+        \subsubsection*{Addizione}
+            esempio: $5xy + 3x$ deve essere sommato a $4xy - 2x$. Procedimento: \\
+            la somma e': $5xy + 3x + 4xy - 2x$ ma alcuni monomi sono simili, quindi sommiamoli tra di loro:
+            $9xy - x$
+        \subsubsection*{Sottrazione}
+            e' la stessa cosa tranne che per una accortezza. Prendiamo gli stessi polinomi di prima e sottraiamoli: \\
+            avremo $5xy + 3x - (4xy - 2x) = 5xy + 3x - 4xy + 2x = xy + 5x$
+            % consideriamo i monomi simili ad esempio $5xy$ e $4xy$
+        \subsubsection*{Moltiplicazione}
+            Abbiamo due polinomi $x - 1$ e $x + 2$ la loro Moltiplicazione e' fatta moltiplicando componente per componente:
+            $x^2 +2x - x  -2 = x^2-x -2$
+            \newpage
+        \section*{Esercizi}
+        $(2x -1)(x^2 -3x +2) = 2x^3 - 6x^2 + 4x -x^2 + 3x - 2 = 2x^3 -6x^2 -x^2 +3x + 4x - 2 = 2x^3 - 7x^2 + 7x -2.$
+\end{document}
