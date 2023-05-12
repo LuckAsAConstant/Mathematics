@@ -1,6 +1,8 @@
 \documentclass{article}
 
+
 \usepackage{amsmath,amssymb,scalerel,amsthm}
+\usepackage[margin=0.3in]{geometry}
 \usepackage{derivative}
 \usepackage{mathtools}
 \usepackage{color}
@@ -180,18 +182,28 @@
                 $\varphi$ is derivable and for the Lagrange theorem $\exists y_1 \in I[y,y_0] : \varphi (y) - \varphi (y_0) = \dot{\varphi}(y_1)(y-y_0)$. So one has $f(x,y) - f(x,y_0) = \frac{\partial f(x,y_1)}{\partial y}(y-y_0)$, and we repeat the same reasoning for the other variable and one will have $f(x,y_0) - f(x_0,y_0) = \frac{\partial f(x_1,y_0)}{\partial x}(x-x_0)$
                 We have then: 
                     \begin{gather*}
-                        \left\lvert \frac{f(x,y) - f(x_0,y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\  \left\lvert \frac{\frac{\partial f(x_1,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x,y_1)}{\partial y}{(y-y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\  \left\lvert \frac{\left(\frac{\partial f (x_1,y_0)}{\partial x} - \frac{\partial f (x_0,y_0)}{\partial x} \right)(x-x_0) + \left( \frac{\partial f (x,y_1)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x}\right)(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}}\right\rvert  
+                        \left\lvert \frac{f(x,y) - f(x_0,y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\ = \left\lvert \frac{\frac{\partial f(x_1,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x,y_1)}{\partial y}{(y-y_0) - \frac{\partial f(x_0,y_0)}{\partial x}(x-x_0) - \frac{\partial f(x_0,y_0)}{\partial y}(y-y_0)}}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right\rvert = \\ = \left\lvert \frac{\left(\frac{\partial f (x_1,y_0)}{\partial x} - \frac{\partial f (x_0,y_0)}{\partial x} \right)(x-x_0) + \left( \frac{\partial f (x,y_1)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x}\right)(y-y_0)}{\sqrt{(x-x_0)^2 + (y-y_0)^2}}\right\rvert  
                     \end{gather*}
                 The last member is increased by the following:
                     \begin{gather*}
-                        \left\lvert \frac{\partial f(x_1,y_0)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x} \right\rvert \frac{\left\lvert x - x_0\right\rvert}{\left\lVert (x-x_0,y-y_0)\right\rVert } + \left\lvert \frac{\partial f(x,y_1)}{\partial y} - \frac{\partial f(x_0,y_0)}{\partial y}\right\rvert \\ \frac{\left\lvert y - y_0\right\rvert}{\left\lVert (x-x_0,y-y_0) \right\rVert } \leq \left\lvert \frac{\partial f(x_1,y_0)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x} \right\rvert + \left\lvert \frac{\partial f(x,y_1)}{\partial y} - \frac{\partial f(x_0,y_0)}{\partial y}\right\rvert
+                        \left\lvert \frac{\partial f(x_1,y_0)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x} \right\rvert \frac{\left\lvert x - x_0\right\rvert}{\left\lVert (x-x_0,y-y_0)\right\rVert } + \left\lvert \frac{\partial f(x,y_1)}{\partial y} - \frac{\partial f(x_0,y_0)}{\partial y}\right\rvert \frac{\left\lvert y - y_0\right\rvert}{\left\lVert (x-x_0,y-y_0) \right\rVert } \leq \\ \leq \left\lvert \frac{\partial f(x_1,y_0)}{\partial x} - \frac{\partial f(x_0,y_0)}{\partial x} \right\rvert + \left\lvert \frac{\partial f(x,y_1)}{\partial y} - \frac{\partial f(x_0,y_0)}{\partial y}\right\rvert
                     \end{gather*}
                 And since $x \to x_0 \Rightarrow x_1 \to x_0$ and $y \to y_1 \Rightarrow y_1 \to y_0$ so the second member of the inequality is equal to zero.
             \end{proof}
         \end{theorem}
     \end{definition}
     \begin{theorem} %$\left( \diamondsuit \right)$ 
-        Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open. If the function is differentiable in a point $(x_0,y_0) \in A$ then is continuos in that point.
+        Let $f : A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ with $A$ open. If the function is differentiable in a point \textbf{x} $\in A$ then is continuos in that point.
+        \begin{proof}
+            Since we have:
+            \begin{equation*}
+                \lim_{x \to \textbf{x}}\frac{f(x) - f(\textbf{x}) - \sum_{i = 1}^{n} \frac{\partial f(\textbf{x})}{\partial x_i} \left(x_i - \textbf{x}_i \right)}{\left\lVert x - \textbf{x}\right\rVert} = 0
+            \end{equation*}
+            If we fix an $\varepsilon = 1$ there exists $\delta > 0 : \forall x \in A$ with $0 < \left\lVert x - \textbf{x} \right\rVert < \delta$ one has:
+            \begin{equation*}
+                \left\lvert \frac{f(x) - f(\textbf{x}) - \nabla f(\textbf{x})(x - \textbf{x})}{\left\lVert x - \textbf{x}\right\rVert} \right\rvert < \varepsilon \Longrightarrow \left\lvert f(x) - f(\textbf{x}) - \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert < \left\lVert x - \textbf{x}\right\rVert
+            \end{equation*}
+        \end{proof}
     \end{theorem}
     \newpage
     \begin{schwarztheorem}

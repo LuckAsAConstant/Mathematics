@@ -4,7 +4,7 @@
 \usepackage{derivative}
 \usepackage{mathtools}
 \usepackage{color}
-
+\usepackage{tikz}
 
 \title{Geometry I}
 \author{Alessio Esposito}
@@ -38,7 +38,7 @@
                 l_1 & m_1 & n_1
             \end{vmatrix} = 0
         \end{gather*}
-        Where $<\beta_1,\beta_2,\beta_3> = <\vec{a}\land\vec{a_1}>$ \\
+        Where $<\beta_1,\beta_2,\beta_3> = <\vec{a}\times\vec{a_1}>$ \\
     % Given a plane $\pi$, a point $P_0\equiv(x_0,y_0,z_0)$ and a line $r$ one has the following:
     \subsection*{Distance between a plane and a point}
         \begin{flalign*}
@@ -112,7 +112,54 @@
             m\left( X - a \right) - l\left( Y - b\right) = 0 \\
             n\left( X - a \right) - l\left( Z - c\right) = 0  
         \end{gather*}
-        
+    
+    \newpage
+    \subsection*{Vectorial product}
+        let $\left\{ \vec{i},\vec{j},\vec{k} \right\}$ be an orthonormal basis of $\mathbb{R}^3$ then we have the following: 
+        \begin{gather*}
+            \vec{i} \times \vec{j} = -\vec{j} \times \vec{i} = \vec{k} \\
+            \vec{j} \times \vec{k} = -\vec{k} \times \vec{j} = \vec{i} \\
+            \vec{k} \times \vec{i} = -\vec{i} \times \vec{k} = \vec{j} \\
+            \vec{i} \times \vec{i} = \vec{j} \times \vec{j} = \vec{k} \times \vec{k} = \vec{0} 
+        \end{gather*}
+        The \textbf{v.p.} between two arbitrary vectors $\vec{v}(v_1,v_2,v_3)$ and $\vec{w}(w_1,w_2,w_3)$ of $\mathbb{R}^3$ is:
+        \begin{equation*}
+            \vec{v} \times \vec{w} = \left(v_2w_3 - v_3w_2\right)\vec{i} + \left(v_3w_1 - v_1w_3\right) \vec{j} + \left(v_1w_2 - v_2w_1\right) \vec{k} \ \ \triangle 
+        \end{equation*}
+        That can be seen as:
+        \begin{equation*}
+            \vec{v} \times \vec{w} = \begin{vmatrix}
+                \vec{i} && \vec{j} && \vec{k} \\
+                v_1 && v_2 && v_3 \\
+                w_1 && w_2 && w_3
+            \end{vmatrix}
+        \end{equation*}
+        By theory the $\triangle$ is defined by the minors of second order taken with the criteria $+,-,+$ of the matrix:
+        \begin{gather*}
+            \left(\begin{matrix}
+                v_1 && v_2 && v_3 \\
+                w_1 && w_2 && w_3
+            \end{matrix}\right) 
+        \end{gather*}
+        One can remind easily the propreties of $\vec{i},\vec{j},\vec{k}$ with the scheme:
+        \begin{center}
+            \begin{tikzpicture}[->,scale=.9]
+                \node (i) at (90:1cm)  {$i$};
+                \node (j) at (-30:1cm) {$j$};
+                \node (k) at (210:1cm) {$k$};
+             
+                \draw (70:1cm)  arc (70:-10:1cm);
+                \draw (-50:1cm) arc (-50:-130:1cm);
+                \draw (190:1cm) arc (190:110:1cm);
+             \end{tikzpicture}
+        \end{center}
+        \subsection*{More propreties about the v.p.}
+        Let be $\mathfrak{v},\mathfrak{w},\mathfrak{u} \in \mathbb{R}^3$ and $c\in \mathbb{R}$ then one has
+        \begin{gather*}
+            \mathfrak{v} \times \mathfrak{w} = -\mathfrak{w} \times \mathfrak{v} \\
+            \mathfrak{v} \times \left( \mathfrak{w} + \mathfrak{u}\right) = \mathfrak{v} \times \mathfrak{w} + \mathfrak{v} \times \mathfrak{u} \\
+            c\left(\mathfrak{v}\times \mathfrak{w}\right) = \left( c\mathfrak{v}\right) \times \mathfrak{w} = \mathfrak{v} \times \left(c\mathfrak{w}\right) \\
+        \end{gather*}
 
 
 \end{document}
