@@ -2,7 +2,7 @@
 
 
 \usepackage{amsmath,amssymb,scalerel,amsthm}
-\usepackage[margin=0.3in]{geometry}
+\usepackage[margin=0.2in]{geometry}
 \usepackage{derivative}
 \usepackage{mathtools}
 \usepackage{color}
@@ -157,7 +157,7 @@
         \begin{definition}
             More in general if $f:A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ and \textbf{x} $\in A$:
             \begin{equation*}
-                d_{\textbf{x}}^rf:h \in \mathbb{R}^n \longmapsto \sum_{\substack{i_1, \dots, i_n \geq 0 \\ i_1 + \dots + i_n = r}}\frac{r!}{i_1! \dots i_n!}\frac{\partial ^r f}{\partial x^{i_1} \dots \partial x^{i_n}}(\textbf{x}) h^{i_1}_1, \dots,h^{i_n}_n  \in \mathbb{R}
+                d_{\textbf{x}}^rf:h \in \mathbb{R}^n \longmapsto \sum_{\substack{i_1, \dots, i_n \geqslant 0 \\ i_1 + \dots + i_n = r}}\frac{r!}{i_1! \dots i_n!}\frac{\partial ^r f}{\partial x^{i_1} \dots \partial x^{i_n}}(\textbf{x}) h^{i_1}_1, \dots,h^{i_n}_n  \in \mathbb{R}
             \end{equation*}
         \end{definition}
         \begin{corollary}
@@ -203,6 +203,15 @@
             \begin{equation*}
                 \left\lvert \frac{f(x) - f(\textbf{x}) - \nabla f(\textbf{x})(x - \textbf{x})}{\left\lVert x - \textbf{x}\right\rVert} \right\rvert < \varepsilon \Longrightarrow \left\lvert f(x) - f(\textbf{x}) - \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert < \left\lVert x - \textbf{x}\right\rVert
             \end{equation*}
+            So we have the the following:
+            \begin{equation*}
+                \left\lvert f(x) - f(\textbf{x}) \right\rvert - \left\lvert \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert \leq \left\lvert f(x) - f(\textbf{x}) - \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert < \left\lVert x - \textbf{x}\right\rVert \ \bigtriangleup 
+            \end{equation*}
+            The $\bigtriangleup$ implies that $\left\lvert f(x) - f(\textbf{x}) \right\rvert - \left\lvert \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert \leq \left\lvert \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert + \left\lVert x - \textbf{x} \right\rVert \leq \left\lVert \nabla f(\textbf{x})\right\rVert \left\lVert x - \textbf{x} \right\rVert + \left\lVert x - \textbf{x} \right\rVert$. The last member of the inequality is equal to $\left\lVert x - \textbf{x} \right\rVert\left( \nabla f(\textbf{x}) + 1 \right)\vartriangle  $  so, if $ 0 < \left\lVert x - \textbf{x} \right\rVert < \delta$ then by calling the $\vartriangle = c$ one finally has:
+            \begin{equation*}
+                0 < \left\lvert f(x) - f(\textbf{x}) \right\rvert \leq c\left\lVert x - \textbf{x}\right\rVert \to 0 \Longleftrightarrow x \to \textbf{x} \Rightarrow \left\lvert f(x) - f(\textbf{x}) \right\rvert \to 0
+            \end{equation*}
+            Or equivalently: $\lim_{x \to \textbf{x}}f(x) = f(\textbf{x})$.
         \end{proof}
     \end{theorem}
     \newpage
@@ -225,17 +234,10 @@
         \end{proof}
     \end{schwarztheorem}
     \subsection*{Directional Derivatives}
-    If we take $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and it's partial derivatives, we can take for example $\frac{\partial f}{\partial x}$ as the direction of the function calculated on the line $y = y_0$.
-    So let a function be defined like the one before and let $(\lambda, \mu) \in \mathbb{R}^2$ with $\sqrt{\lambda^2 + \mu^2} = 1$.
-    Let $r$ the line with the following equations:
+    If we take $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ defined on an open set $A$, $(x_0,y_0) \in A$ and a vector of unitary norm $\vec{v} = (v_1,v_2)$, the Directional derivative of $f(x_0,y_0)$ along the direction $\bar{v}$ can be defined as the limit if it exists and its finite:
     \begin{equation*}
-        \begin{cases}
-            x = x_0 + \lambda t \\
-            y = y_0 + \mu t
-        \end{cases}
+        \frac{\partial f}{\partial \bar{v}}(x_0,y_0) = \lim_{t \to 0} \frac{f(x_0 + tv_1, y_0 + tv_2) - f(x_0,y_0) }{t}
     \end{equation*}
-    
-    $(x_0, y_0)$ is internal to $A$ so there exists a rectangle $R_0$ of center $(x_0, y_0)$, so every line that passes in this point encounters a segment of the rectangle.
     \subsection*{Study of the maxima and minima}
         \begin{definition}
             If a partial derivative $\frac{\partial f}{\partial x}$ of a function $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ is partially derivable with respect to $x$ in a point $(x_0,y_0) \in A$ we say that $f$ is partially derivable two times with respect to $x$ in the point $(x_0,y_0)$ ad it will be denoted as $\frac{\partial f}{\partial x}f_x(x_0,y_0)=\frac{\partial^2 f(x_0,y_0)}{\partial x^2} = \frac{\partial^2 f}{\partial x^2}(x_0,y_0)$. \\
