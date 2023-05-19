@@ -6,6 +6,8 @@
 \usepackage{derivative}
 \usepackage{mathtools}
 \usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
 
 
 \title{Calculus II}
@@ -17,6 +19,8 @@
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem*{schwarztheorem}{Theorem (Schwartz)}
+\newtheorem*{lagrangemult}{Theorem (Lagrange Multipliers)}
+\newtheorem*{implicitfunctions}{Theorem (Implicit Functions)}
 
 
 \begin{document}
@@ -93,10 +97,13 @@
         We say that $\theta \in [0,2\pi]$ is admissible if $ 0\in \bar{\mathcal{D}}(A_\theta).$
     \end{definition}
     \begin{definition}
-        Let's suppose that $\lim_{\rho \to 0} F(\rho, \theta) = l \in \mathbb{R}$ then $\forall \rho \in (0,r], \ \varphi$
+        Let's suppose that $\lim_{\rho \to 0} F(\rho, \theta) = l \in \mathbb{R}$ then $\forall \rho \in (0,r], \ \varphi(\rho) = \sup \left\{\left\lvert F(\rho, \theta) - l \right\rvert : \theta \in [0,2\pi]\right\} $
     \end{definition}
     \begin{theorem}
         $\lim_{\rho \to 0} F(\rho, \theta) = l \in \bar{\mathbb{R}} \ U.W.R.T. \ \theta \Longleftrightarrow \lim_{\rho \to 0 } \varphi(\rho) = 0.$
+        \begin{proof}
+            \textbf{($\Rightarrow$)} $\forall \varepsilon > 0 \ \exists \delta > 0 : \forall \theta \in [0,2\pi] $ and $ \forall \rho \in (0,r]$ with $\rho < \delta \ \left\lvert F(\rho, \theta) - l \right\rvert < \frac{\varepsilon}{2}$ so $\left\lvert \varphi (\rho) \right\rvert \leq \frac{\varepsilon}{2} < \varepsilon \Rightarrow \lim_{\rho \to 0} \varphi (\rho) = 0$. ($\Leftarrow$) $\forall \varepsilon > 0 \ \exists \delta > 0: \forall \rho \in (0,r)$ with $\rho < \delta \ \varphi (\rho) < \varepsilon$ but $\left\lvert F(\rho, \theta) - l \right\rvert \leq \varphi (\rho) \forall \theta$ so if $\rho \in (0,r]$ and $\rho < \delta \ \left\lvert F(\rho, \theta) - l \right\rvert < \varepsilon \Rightarrow \\ \Rightarrow \lim_{\rho \to 0} F(\rho,\theta) = l \ U.W.R.T. \ \theta$  
+        \end{proof}
     \end{theorem}
     \begin{corollary}
         $\lim_{\rho \to 0} F(\rho, \theta) = l \in \bar{\mathbb{R}} \ U.W.R.T. \ \theta \Longleftrightarrow \exists$ a function $\psi(\rho)$ such that $\lim_{\rho \to 0} \psi(\rho) = 0$ and $\forall \theta \ \left\lvert F(\rho, \theta) - l\right\rvert \leqslant \psi(\rho).$
@@ -164,6 +171,12 @@
             $f$ is differentiable in the point $(x_0,y_0) \Longleftrightarrow f$ is partially derivable in the point $(x_0,y_0)$ and the $(\vartriangle)$ is true.
         \end{corollary}
     \newpage
+        \begin{definition}
+            Let $f:A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$ open and $k> 0$ a positive integer. let $(x_0,y_0) \in A$ and if $f$ has differentiable derivatives of order $k - 1$ we define the "k-grade Taylor polinomia" as follows:
+            \begin{equation*}
+                P_k(x,y) = f(x_0,y_0) + \sum_{i = 1}^{k} \frac{1}{i!}d_{(x_0,y_0)}^if(x-x_0,y-y_0)  
+            \end{equation*}  
+        \end{definition}
         \begin{theorem}
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ with $A$. If $\exists \ \frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ in $A$ and are continuos in a point $(x_0,y_0)$, then the function is differentiable in $(x_0,y_0)$.
             \begin{proof}
@@ -209,14 +222,14 @@
             \end{equation*}
             The $\bigtriangleup$ implies that $\left\lvert f(x) - f(\textbf{x}) \right\rvert - \left\lvert \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert \leq \left\lvert \nabla f(\textbf{x})(x - \textbf{x}) \right\rvert + \left\lVert x - \textbf{x} \right\rVert \leq \left\lVert \nabla f(\textbf{x})\right\rVert \left\lVert x - \textbf{x} \right\rVert + \left\lVert x - \textbf{x} \right\rVert$. The last member of the inequality is equal to $\left\lVert x - \textbf{x} \right\rVert\left( \nabla f(\textbf{x}) + 1 \right)\vartriangle  $  so, if $ 0 < \left\lVert x - \textbf{x} \right\rVert < \delta$ then by calling the $\vartriangle = c$ one finally has:
             \begin{equation*}
-                0 < \left\lvert f(x) - f(\textbf{x}) \right\rvert \leq c\left\lVert x - \textbf{x}\right\rVert \to 0 \Longleftrightarrow x \to \textbf{x} \Rightarrow \left\lvert f(x) - f(\textbf{x}) \right\rvert \to 0
+                0 < \left\lvert f(x) - f(\textbf{x}) \right\rvert \leq c\left\lVert x - \textbf{x}\right\rVert \to 0 \Leftarrow x \to \textbf{x} \Rightarrow \left\lvert f(x) - f(\textbf{x}) \right\rvert \to 0
             \end{equation*}
             Or equivalently: $\lim_{x \to \textbf{x}}f(x) = f(\textbf{x})$.
         \end{proof}
     \end{theorem}
     \newpage
     \begin{schwarztheorem}
-        \footnote{$\Omega$ this time is used instead of $A$} Let $f:\Omega \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ be a function in two variables defined on a open set $\Omega$. \\ If $f$ admits continous second derivatives in the point ($f \in C^2(\Omega)$) then $\frac{\partial ^2 f}{\partial x \partial y} = \frac{\partial ^2 f}{\partial y \partial x}$.
+        \footnote{$\Omega$ this time is used instead of $A$} Let $f:\Omega \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ be a function in two variables defined on a open set $\Omega$. \\ If $f$ admits continuous second derivatives in the point ($f \in C^2(\Omega)$) then $\frac{\partial ^2 f}{\partial x \partial y} = \frac{\partial ^2 f}{\partial y \partial x}$.
         \begin{proof}
             Let $p = (x_0,y_0) \in \Omega$ and chose two real numbers $\varepsilon,\delta > 0$ such that $(x_0 - \varepsilon, x_0 + \delta) \times (y_0 - \delta, y_0 + \delta) \subset \Omega$. That is possible since $\Omega$ is Open.
             Lets also define the two functions $F$ and $G$ as follows: 
@@ -263,7 +276,7 @@
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, we say that $(x_0,y_0) \in A$ is maxima (minima) for $f$ if $\forall (x,y) \in A, \ f(x,y) \leqslant f(x_0,y_0)$ \ ($f(x,y) \geqslant f(x_0,y_0)$). 
         \end{definition}
         \begin{theorem}
-            If $f$ is continous and $A$ is compact, $f$ admits minima and maxima.
+            If $f$ is continuous and $A$ is compact, $f$ admits minima and maxima.
         \end{theorem}
         \begin{theorem}
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and let $(x_0,y_0) \in \dot{A}$ a relative extreme and let  $f$ be partially derivable in $(x_0,y_0)$, so then $\frac{\partial f(x_0,y_0)}{\partial x} = 0$ and $\frac{\partial f(x_0,y_0)}{\partial y} = 0$. \\
@@ -278,4 +291,88 @@
         \begin{theorem}
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, $f \in \mathbf{C}^2$. Let $(x_0,y_0) \in \dot{A}$ a critical point and lets suppose that $\mathcal{H}(x_0,y_0) > 0 \Longrightarrow (x_0,y_0)$ is a relative extreme and is maximum or minimum depending on $\frac{\partial^2 f(x_0,y_0)}{\partial x^2}$ be $<0$ or $>0$.  
         \end{theorem}
+        \newpage
+        \subsection*{Implicit functions}
+            By defining a function $f:A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ the expression: $f(x,y) = 0 \ \Diamond  $ means that one can consider the variable $x$ as a parameter and $y$ as unknown and the question is when, $\forall x \ \exists! y$ such that the $\Diamond $ is true.  
+            \begin{definition}
+                The equation defines implicitly $y$ as a function of $x$ if $\forall x, \exists! y: f(x,y) = 0$ in that case the function g is defined as:
+                \begin{equation*}
+                    g:x \longmapsto y \Rightarrow f(x,y) = 0
+                \end{equation*}
+            \end{definition}
+            \begin{proposition}
+                The equation $f(x_0,y_0) = 0$ defines implicitly $y$ as a function of $x$, the set of all the zeros of $f$ is equal to the graph of the implicit function.
+                \begin{proof}
+                    $(x_0,y_0)$ is a zero of $f \Longleftrightarrow f(x_0,y_0) = 0 \Longleftrightarrow y_0 = g(x_0) \Longleftrightarrow (x_0,y_0) \in Gr(g)$
+                \end{proof}
+            \end{proposition}
+            \begin{implicitfunctions}
+                Let $f:A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ lets suppose that $f$ and $\frac{\partial f}{\partial y}$ are continuous. Let $(x_0,y_0) \in A$ be a zero of of the function where $\frac{\partial f}{\partial y} (x_0,y_0) \neq 0$. \textbf{i.} Then there exists an open interval $I$ of center $x_0$ and an open interval $J$ of center $y_0 : I \times J \subseteq A$ and $\forall x \in I, \ \exists! y \in J : f(x,y) = 0$. \textbf{ii.} Also if $g: I \rightarrow J$ is the implicit function, $g$ is continuous and $g(x_0) = y_0$. \textbf{iii.} In addition if $\exists \frac{\partial f}{\partial x}, \ g$ is derivable and $\forall x \in I, \ \dot{g}(x) = -\frac{\frac{\partial f}{\partial x}(x,g(x))}{\frac{\partial f}{\partial y}(x,g(x))}$. \textbf{iv.} Furthermore $f \in C^k$, then $g\in C^k$.  
+                \begin{proof}
+                    \textbf{i.} By hypotesis $\frac{\partial f}{\partial y} \neq 0$. Lets suppose that $\frac{\partial f}{\partial y}(x_0,y_0) > 0$, so for the sign permanence theorem there exists a rectangle $R_0 = [x_0 - \alpha , x_0 + \alpha] \times [y_0 - \beta , y_0 + \beta] \subseteq A : \forall (x,y) \in R_0, \ \frac{\partial f}{\partial y}(x,y) > 0$. Let $\varphi: y\in [y_0 - \beta , y_0 + \beta] \longmapsto f(x_0,y)$, by hypotesis $\exists \frac{\partial f}{\partial y}$ so, by definition $\varphi$ is derivable and $\dot{\varphi}(y)= \frac{\partial f}{\partial y}(x_0,y) > 0 \Rightarrow \varphi$ is strictly growing. $\varphi (y_0) = f(x_0,y_0) = 0, \ \varphi (y_0 + b) > \varphi(y_0) = 0 \Rightarrow f(x_0,y_0 - b) < 0$ and $f(x_0,y_0+b) > 0$. Lets define:
+                    \begin{gather*}
+                        \varphi_1: x\in [x_0- \alpha,x_0 + \alpha] \longmapsto f(x,y_0 - b) \\
+                        \varphi_2: x\in [x_0- \alpha,x_0 + \alpha] \longmapsto f(x,y_0 + b)
+                    \end{gather*}
+                    $\varphi_1$ and $\varphi_2$ are continuous because $f$ is continuous and $\varphi_1 (x_0) = f(x_0,y_0 -b) < 0$ and $\varphi_2(x_0) = f(x_0,y_0 + b) > 0$ so there exists an interval $[x_0 - \delta, x_0 + \delta] \subseteq [x_0 - \alpha, x_0 + \alpha] : \forall x \in [x_0 - \delta, x_0 +\delta], \ \varphi_1(x) < 0$ and $\varphi_2(x) > 0$. Now $\forall x \in [x_0 - \delta, x_0 +\delta], f(x,y_0 - b) < 0 $ and $f(x,y_0 + b ) > 0$ if we take an $x \in (x_0 - \delta, x_0 +\delta)$ and define: 
+                    \begin{equation*}
+                        \psi: y\in [y_0 - b, y_0 + b] \longmapsto f(x,y)
+                    \end{equation*}
+                    One has that $\psi$ is derivable and $\dot{\psi}(y) = \frac{\partial f}{\partial y}(x,y) >0$ that implies $\psi$ is strictly growing and also continuous. $\psi (y_0 - b) = f(x,y_0 - b) < 0$ and $\psi (y_0 - b) = f(x,y_0 + b) > 0$ for the zeros theorem, $\exists y \in (y_0 - b, y_0 + b)$ where $\psi(y) = 0 \Rightarrow f(x,y) = 0$. Also $y$ is unique since $\psi$ is strictly growing and that means it can't become zero in two diffrent points.
+                    \textbf{ii.} Let $g: I \longmapsto J$ the implicit function defined by the equation $f(x,y) = 0$. $\forall x \in I, \ f(x,g(x)) = 0$ and $f(x_0,y_0) \Rightarrow y_0 = g(x_0)$ we have to demostrate that g is continuous, so let $\overline{x} \in I$ and the claim is $\lim_{x \to \overline{x}}g(x) = g(\overline{x})$. $\forall x \in I, \ g(x)$ and $g(\overline{x})$ are two distinct points of $J \Rightarrow K[g(x),g(\overline{x})] \subseteq J$. \\
+                    \begin{center} 
+                        \begin{tikzpicture}
+                            \draw [o-*] (0,0) node[pos = 1, below] {$y_0 - b$} -- +(2,0) node[pos = 1, below] {$g(x)$};
+                            \draw [-*] (2,0) -- +(2,0) node[pos = 1, below] {$y_0$}; 
+                            \draw [-*] (2,0) -- +(4,0) node[pos = 1, below] {$g(\overline{x})$};
+                            \draw [-o] (4,0) -- +(4,0) node[pos = 1, below] {$y_0 + b$};
+                        \end{tikzpicture}
+                    \end{center}   
+                    $\forall x \in I$, let $\psi : y\in K[g(x),g(\overline{x})] \longmapsto f(x,y)$       
+                \end{proof}
+            \end{implicitfunctions}
+        \subsection*{Bound extremes}
+        Let $f: A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ with $A$ open. If $g: A \rightarrow \mathbb{R}^m$ then we define $E_0 = \left\{ x\in A: g(x) = 0 \right\}$. $g = (g_1 ,\dots ,g_m)$ so $g(x) = 0$ is equivalent to say:        
+        \begin{equation*}
+            \begin{cases}
+                g_1(x) = 0 \\
+                g_2(x) = 0 \\
+                \vdots \\
+                g_m(x) = 0
+            \end{cases}
+        \end{equation*}
+        \begin{definition}
+            A point  $x_0 \in E_0$ is said to be bound maximum (bound minimum) if $\forall x \in E_0 \ f(x) \leq f(x_0)$ ($f(x) \geq f(x_0)$).
+        \end{definition}
+        \begin{lagrangemult}
+            Let $f:A\subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ and $g:A \rightarrow \mathbb{R}$ with $g \in C^1$ in an open set $A$. \\ 
+            Let $E_0 = \left\{ (x,y)\in A: g(x,y)= 0 \right\}$ and $(x_0,y_0) \in E_0$ a bound relative extreme for $f$ and suppose that $\nabla g(x_0,y_0) \neq (0,0)$ then $\exists ! \lambda \in \mathbb{R} : (x_0,y_0)$ be a critical point for the function $\mathcal{L} (x,y) = f(x,y) + \lambda g(x,y)$ $\left( \frac{\partial f}{\partial x}(x_0,y_0) + \lambda \frac{\partial g}{\partial x}(x_0,y_0) = 0 \land \frac{\partial f}{\partial y}(x_0,y_0) + \lambda \frac{\partial g}{\partial y}(x_0,y_0) = 0\right)$.
+            \begin{proof}
+                \textbf{Existence} Since $\nabla g(x_0,y_0) \neq (0,0)$ we can assume $\frac{\partial g}{\partial y}(x_0,y_0) \neq 0$. $g(x,y) = 0$ verifies the conditions of the implicit functions theorem ($g \in C^1, \ g(x_0,y_0) = 0, \ \frac{\partial g}{\partial y}(x_0,y_0) \neq 0$), so for that theorem $\exists$ an open interval $I$ of center $x_0$ and an open interval $J$ of center $y_0: I \times J \subseteq A$ and $\forall x \in I \ \exists ! \ y \in J: g(x,y)=0$ also the implicit function $\varphi : I \rightarrow J$ is $C^1$. $\varphi (x_0) = y_0$ and $\forall x \in I$ one has: 
+                \begin{equation*}
+                    \dot{\varphi}(x) = - \frac{\frac{\partial g}{\partial x}(x, \varphi (x))}{\frac{\partial g}{\partial y}(x, \varphi (x))}
+                \end{equation*} 
+                Lets suppose for example that $(x_0,y_0)$ is a bound relative minimum, then there exists a rectangle $I' \times J' \subseteq I \times J$ of center $(x_0,y_0)$ such that $\forall (x,y) \in (I'\times J')\cap E_0 \Rightarrow f(x,y) \leq f(x_0,y_0)$. $\varphi$ is continuous in $x_0$, $J'$ is an interval of center $y_0 = \varphi(x_0) \ \exists  I'' \subseteq I'$ of center $x_0 : \forall x \in I'' \ \varphi(x) \in J'$. $\forall x \in I'' \ (x,\varphi(x)) \in (I' \times J') \cap E_0$. $\varphi :x \longmapsto$ y such that $g(x_0,y_0) = 0$ so $g(x,\varphi(x)) = 0 \ \forall x \in I$. $\forall x \in I'' \ f(x,\varphi(x)) \leq f(x_0,y_0)$. $\forall x \in I''$ we define $\psi(x) = f(x,\varphi(x))$ such that $\forall x \in I''$ we have $(x,\varphi(x)) \in I' \times J' \subseteq I\times J \subseteq A$ and that means $\forall x \ \psi(x) \leq f(x_0,y_0) = \psi(x_0) \Rightarrow x_0$ is a bound relative maximum for $\psi$ and is internal to $I''$. $\psi \in C^1$ since is a composition of $C^1$ functions so is derivable and $\forall x \in I''$:
+                \begin{equation*}
+                    \dot{\psi}(x) = \frac{\partial f}{\partial x}(x,\varphi (x)) + \frac{\partial f}{\partial y}(x,\varphi (x)) \dot{\varphi} (x) = \frac{\partial f}{\partial x}(x,\varphi (x)) - \frac{\partial f}{\partial y}(x,\varphi (x)) \frac{\frac{\partial g}{\partial x}(x,\varphi (x))}{\frac{\partial g}{\partial y}(x,\varphi (x))}
+                \end{equation*}
+                Since $\psi$ is derivable, and $x_0$ is a maximum, for fermat theorem one has $\dot{\psi}(x_0)=0$ with: 
+                \begin{equation*}
+                    \dot{\psi}(x_0) = \frac{\partial f}{\partial x}(x_0,y_0) - \frac{\partial f}{\partial y}(x_0,y_0) \frac{\frac{\partial g}{\partial x}(x_0,y_0)}{\frac{\partial g}{\partial y}(x_0,y_0)} = 0 \Longleftrightarrow  \frac{\partial f}{\partial x}(x_0,y_0)\frac{\partial g}{\partial y}(x_0,y_0) - \frac{\partial f}{\partial y}(x_0,y_0)\frac{\partial g}{\partial x}(x_0,y_0) = 0
+                \end{equation*}
+                Equivalently we can use this expression:
+                \begin{equation*}
+                    \begin{vmatrix}
+                        \frac{\partial f}{\partial x}(x_0,y_0) && \frac{\partial f}{\partial y}(x_0,y_0) \\
+                        \frac{\partial g}{\partial x}(x_0,y_0) && \frac{\partial g}{\partial y}(x_0,y_0)
+                    \end{vmatrix} = 0
+                \end{equation*}
+                And if thats is true that implies $\exists (\lambda_1, \lambda_2) \neq (0,0)$ such that one of the two coloums is \textbf{l.d.} \footnote{Linearly dependent} $\Longrightarrow \lambda_1\frac{\partial f}{\partial x}(x_0,y_0) + \lambda_2\frac{\partial g}{\partial x}(x_0,y_0) = 0$. \\
+                If $\lambda_1 = 0 \Rightarrow \lambda_2 \neq 0 \Rightarrow \frac{\partial g}{\partial x}(x_0,y_0) = 0$ but thats impossible since the hypotesis impose it to be different from zero, so it must be $\lambda_1 \neq 0$ and if we chose $\lambda = \frac{\lambda_2}{\lambda_1}$ we have $\mathcal{L} (x,y) = f(x,y) + \lambda g(x,y) = 0$. \\
+                \textbf{Uniqueness} Let $\mathcal{L} (x,y) = f(x,y) + \lambda g(x,y) = 0$ and $\mathcal{L} (x,y) = f(x,y) + \overline{\lambda}  g(x,y) = 0$. If we subtract member to member the last equations one has: 
+                \begin{equation*}
+                    \left( \lambda - \overline{\lambda} \right) \frac{\partial g}{\partial y}(x_0,y_0) = 0 \Rightarrow  \lambda = \overline{\lambda}
+                \end{equation*}
+            \end{proof} 
+        \end{lagrangemult}
 \end{document}
