@@ -312,6 +312,49 @@
             \begin{definition}
                 $f(x)$ is continuous in a point $x_0 \in A$ if $\forall \varepsilon > 0, \exists \delta$ such that $\forall x \in A,  \left\lVert x - x_0\right\rVert < \delta \Rightarrow \left\lVert f(x) - f(x_0) \right\rVert < \varepsilon$.
             \end{definition}
+            \begin{proposition}
+                If $x_0$ is an isolated point, $f$ is continuous in $x_0$. If $x_0$ is an accumulation point, $f$ is continuous in $ x_0 \Longleftrightarrow \lim_{x \to x_0} f(x) = f(x_0) \Longleftrightarrow \forall i \leq m \ \lim_{x \to x_0} f_i(x) = f_i(x_0)$.   
+            \end{proposition}
+            \begin{corollary}
+                $f$ is continuous $\Longleftrightarrow$ all its components are continuous.
+            \end{corollary}
+            \begin{definition}
+                $f: A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}^m$ with A open. We say that $f$ is partially derivable with respect to the variable $x_i$ in a point $\overline{x} \in A$ if it exists:
+                \begin{equation*}
+                    \lim_{x \to \overline{x_i}} \frac{f(\overline{x_1},\dots,x_i,\dots,\overline{x_n}) - f(\overline{x})}{x_i - \overline{x_i}} \in \mathbb{R}^m
+                \end{equation*} 
+            \end{definition}
+            \begin{theorem}
+                Let $f = (f_1,\dots,f_m)$. Then $f$ is partially derivable with respect to $x_j$ in the point $\overline{x} \in A \Longleftrightarrow \forall i \leq m \ f_i$ is partially derivable with respect to $x_j$ in the point $\overline{x}$. Also $\frac{\partial f}{\partial x_j} = \left( \frac{\partial f_1}{\partial x_j},\dots,\frac{\partial f_m}{\partial x_j}\right)$.
+                \begin{proof}
+                    $\lim_{x \to \overline{x_i}} \frac{f(\overline{x_1},\dots,x_i,\dots,\overline{x_n}) - f(\overline{x})}{x_i - \overline{x_i}}$. The $i-$component of the incremental ratio is $\lim_{x \to \overline{x_j}} \frac{f_i(\overline{x_1},\dots,x_j,\dots,\overline{x_n}) - f_i(\overline{x})}{x_j - \overline{x_j}}$. \\ 
+                    $\lim_{x \to \overline{x_i}} \frac{f(\overline{x_1},\dots,x_i,\dots,\overline{x_n}) - f(\overline{x})}{x_i - \overline{x_i}}$ exists $\Longleftrightarrow \forall i \leq m$ exists $\lim_{x \to \overline{x_j}} \frac{f_i(\overline{x_1},\dots,x_j,\dots,\overline{x_n}) - f_i(\overline{x})}{x_j - \overline{x_j}} \Longrightarrow f$ is partially derivable with respect to $x_j$ in the point $\overline{x} \Longleftrightarrow$ all its components are derivable.
+                \end{proof}
+            \end{theorem}
+            \begin{definition}
+                If $f:A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}^m$ is partially derivable with respect to all variables, we define:
+                \begin{equation*}
+                    \nabla f : x \longmapsto \left( \begin{matrix}
+                        \frac{\partial f_1}{\partial x_1} (x) && \dots && \frac{\partial f_1}{\partial x_n}(x) \\
+                        \vdots && \ddots  && \vdots \\
+                        \frac{\partial f_m}{\partial x_1} (x) && \dots && \frac{\partial f_m}{\partial x_n}(x) \\
+                    \end{matrix}\right) \ \diamondsuit
+                \end{equation*}
+                As the Jacobian matrix. The $\diamondsuit$ can be also written as $\nabla f = \frac{\partial \left(f_1, \dots, f_m\right) }{\partial \left(x_1,\dots, x_n\right)}$. If $m = n$ the Jacobian matrix is a square matrix and the determinant is called Jacobian determinant.
+            \end{definition}
+            \begin{lemma}
+                If $h \in \mathbb{R}^n$ the prodouct rows for coloumns $\nabla f(x) \cdot h \in \mathbb{R}^m$ and has for components $\nabla f_i \cdot h$. $\nabla f(x) \cdot h = \left(\nabla f_1 \cdot h, \dots, \nabla f_m \cdot h\right)$
+                \begin{proof}
+                    $\nabla f(x)$ is a $m \times n$ matrix. If $h \in \mathbb{R}^n$ then it can be written as a $n \times 1$ matrix, so $\forall x \in A, \ \nabla f(x) \cdot h$ is a $m \times 1$ matrix therefore an element of $\mathbb{R}^m $.  $h = \left( \begin{matrix} h_1 \\ \vdots \\ h_n \end{matrix} \right) \Longrightarrow \nabla f(x) \cdot h = \left( \frac{\partial f_1}{\partial x_1}(x)h_1 + \dots + \frac{\partial f_1}{\partial x_n}(x)h_n, \dots, \frac{\partial f_m}{\partial x_1}(x)h_1 + \dots + \frac{\partial f_m}{\partial x_n}(x)h_n\right)$.
+                \end{proof}
+            \end{lemma}
+            \begin{definition}
+                We say that $f$ is differentiable in a point $x \in A$ if is partially derivable with respect to all the variables in the point $x$ and:
+                \begin{equation*}
+                    \lim_{h \to 0 } \frac{f(x +h) - f(x)- \nabla f(x) \cdot h}{\left\lVert h \right\rVert}
+                \end{equation*}
+                Is equal to zero.
+            \end{definition}
             \newpage
         \subsection*{Implicit functions}
             By defining a function $f:A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ the expression: $f(x,y) = 0 \ \Diamond  $ means that one can consider the variable $x$ as a parameter and $y$ as unknown and the question is when, $\forall x \ \exists! y$ such that the $\Diamond $ is true.  
