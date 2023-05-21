@@ -1,6 +1,5 @@
 \documentclass{article}
 
-
 \usepackage{amsmath,amssymb,scalerel,amsthm}
 \usepackage[margin=0.2in]{geometry}
 \usepackage{derivative}
@@ -13,6 +12,7 @@
 \title{Calculus II}
 \author{Alessio Esposito}
 
+\newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
 \newtheorem{observation}{Obs}
 \newtheorem{corollary}{Corollary}
@@ -292,6 +292,27 @@
             Let $f : A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, $f \in \mathbf{C}^2$. Let $(x_0,y_0) \in \dot{A}$ a critical point and lets suppose that $\mathcal{H}(x_0,y_0) > 0 \Longrightarrow (x_0,y_0)$ is a relative extreme and is maximum or minimum depending on $\frac{\partial^2 f(x_0,y_0)}{\partial x^2}$ be $<0$ or $>0$.  
         \end{theorem}
         \newpage
+        \subsection*{Vectorial Functions}
+            A vectorial function is defined as follows: $f:A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}^m$. $\forall x \in A, \ f(x) \in  \mathbb{R}^m$ and $f(x) = (f_1(x),\dots,f_m(x))$ with $f_i:A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$
+            \begin{definition}
+                Let $f:A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}^m$ and let $x_0$ be an accumulation point for $A$, we say that $\lim_{x \to x_0}f(x) = l \in \mathbb{R}^m$ if $\forall \varepsilon >0 \ \exists \delta > 0: \forall x\in A$ with $0 < \left\lVert x - x_0 \right\rVert < \delta \Rightarrow \left\lVert f(x) - l\right\rVert < \varepsilon $.
+            \end{definition}
+            \begin{lemma}
+                Let $a_1,\dots,a_n \in \mathbb{R}$, then $\forall j \leq n \ \left\lvert a_j \right\rvert \leq \sqrt{\sum_{i = 1}^{n}a_i^2} \leq \sum_{i = 1}^{n}\left\lvert a_i \right\rvert$.
+                \begin{proof}
+                    Let $j \leq n$. $\left\lvert a_j \right\rvert = \sqrt{a_j^2} \leq \sqrt{\sum_{i = 1}^{n} a_i^2 }$. We have to prove that $\sum_{i = 1}^{n} a_i^2 \leq \left( \sum_{i = 1}^{n}\left\lvert a_i \right\rvert \right)^2 $  and thats true for $n = 2$ infact: $\left(\left\lvert a_1 \right\rvert + \left\lvert a_2 \right\rvert  \right)^2 = a_1^2 + a_2^2 + 2\left\lvert a_1 \right\rvert\left\lvert a_2 \right\rvert \geq a_1^2 + a_2^2$. Lets suppose that's true for $n - 1$, that means $\sum_{i = 1}^{n}a_i^2 \leq \left(\sum_{i = 1}^{n}\left\lvert a_i \right\rvert\right)^2$ because $\sum_{i = 1}^{n}a_i^2  = \sum_{i = 1}^{n-1}a_i^2 + a_n^2 \leq \left(\sum_{i = 1}^{n - 1}\left\lvert a_i \right\rvert\right)^2 + a_n^2 \leq \left(\sum_{i = 1}^{n - 1}\left\lvert a_i \right\rvert + \left\lvert a_n \right\rvert \right)^2 = \left(\sum_{i = 1}^{n}\left\lvert a_i \right\rvert\right)^2$.      
+                \end{proof}
+            \end{lemma}
+            \begin{theorem}
+                Let $f:A\subseteq \mathbb{R}^2 \rightarrow \mathbb{R}^m$ with $f=(f_1,\dots,f_m)$. Let $x_0$ be an accumulation point for $A$ and let $l = (l_1,\dots,l_m) \in \mathbb{R}^m$. Then $\lim_{x \to x_0}f(x) = l \Longleftrightarrow  \forall i \leq m, \ \lim_{x \to x_0}f_i = l_i$.
+                \begin{proof}
+                    We know that if $a_i = f_i(x) - l_i$ then $\forall j \leq m, \ \left\lvert f_j(x) - l_j\right\rvert \leq \sqrt{\sum_{i = 1}^{m} \left(f_i(x) - l_i\right)^2 } = \left\lVert f(x) - l\right\rVert \leq \sum_{i = 1}^{m} \left\lvert f_i(x) - l_i\right\rvert$. Lets suppose that $\lim_{x \to x_0} f(x) = l$, then $\left\lVert f(x) - l\right\rVert \to 0 $ for $x \to x_0$ and for the sandwich theorem $\left\lvert f_j (x) - l_j \right\rvert \to 0 $ for $x \to x_0 \ \forall j \leq m \Longrightarrow \forall j \leq m \ \lim_{x \to x_0 }f_j(x) = l_j$. Viceversa lets suppose that $\forall i \leq m \ \lim_{x \to x_0} f_i( x) = l_i \Rightarrow \left\lvert f_i (x) - l_i\right\rvert \to 0 $ for $x \to x_0 \forall i \leq m \Rightarrow \ \sum_{i = 1}^{m} \to 0$ for $x \to x_0 \ \Rightarrow \left\lVert f(x) - l\right\rVert \to 0 $ for $x \to x_0 \Rightarrow \lim_{x \to x_0}f(x) = l$.  
+                \end{proof}
+            \end{theorem}
+            \begin{definition}
+                $f(x)$ is continuous in a point $x_0 \in A$ if $\forall \varepsilon > 0, \exists \delta$ such that $\forall x \in A,  \left\lVert x - x_0\right\rVert < \delta \Rightarrow \left\lVert f(x) - f(x_0) \right\rVert < \varepsilon$.
+            \end{definition}
+            \newpage
         \subsection*{Implicit functions}
             By defining a function $f:A \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$ the expression: $f(x,y) = 0 \ \Diamond  $ means that one can consider the variable $x$ as a parameter and $y$ as unknown and the question is when, $\forall x \ \exists! y$ such that the $\Diamond $ is true.  
             \begin{definition}
@@ -318,8 +339,8 @@
                     \begin{equation*}
                         \psi: y\in [y_0 - b, y_0 + b] \longmapsto f(x,y)
                     \end{equation*}
-                    One has that $\psi$ is derivable and $\dot{\psi}(y) = \frac{\partial f}{\partial y}(x,y) >0$ that implies $\psi$ is strictly growing and also continuous. $\psi (y_0 - b) = f(x,y_0 - b) < 0$ and $\psi (y_0 - b) = f(x,y_0 + b) > 0$ for the zeros theorem, $\exists y \in (y_0 - b, y_0 + b)$ where $\psi(y) = 0 \Rightarrow f(x,y) = 0$. Also $y$ is unique since $\psi$ is strictly growing and that means it can't become zero in two diffrent points.
-                    \textbf{ii.} Let $g: I \longmapsto J$ the implicit function defined by the equation $f(x,y) = 0$. $\forall x \in I, \ f(x,g(x)) = 0$ and $f(x_0,y_0) \Rightarrow y_0 = g(x_0)$ we have to demostrate that g is continuous, so let $\overline{x} \in I$ and the claim is $\lim_{x \to \overline{x}}g(x) = g(\overline{x})$. $\forall x \in I, \ g(x)$ and $g(\overline{x})$ are two distinct points of $J \Rightarrow K[g(x),g(\overline{x})] \subseteq J$. \\
+                    One has that $\psi$ is derivable and $\dot{\psi}(y) = \frac{\partial f}{\partial y}(x,y) >0$ that implies $\psi$ is strictly growing and also continuous. $\psi (y_0 - b) = f(x,y_0 - b) < 0$ and $\psi(y_0 + b) = f(x,y_0 + b) > 0$ for the zeros theorem, $\exists y \in (y_0 - b, y_0 + b)$ where $\psi(y) = 0 \Rightarrow f(x,y) = 0$. Also $y$ is unique since $\psi$ is strictly growing and that means it can't become zero in two diffrent points.
+                    \textbf{ii.} Let $g: I \longmapsto J$ the implicit function defined by the equation $f(x,y) = 0$. $\forall x \in I, \ f(x,g(x)) = 0$ and $f(x_0,y_0) \Rightarrow y_0 = g(x_0)$ we have to prove that $g$ is continuous, so let $\overline{x} \in I$ and the claim is $\lim_{x \to \overline{x}}g(x) = g(\overline{x})$. $\forall x \in I, \ g(x)$ and $g(\overline{x})$ are two distinct points of $J \Rightarrow K[g(x),g(\overline{x})] \subseteq J$. \\
                     \begin{center} 
                         \begin{tikzpicture}
                             \draw [o-*] (0,0) node[pos = 1, below] {$y_0 - b$} -- +(2,0) node[pos = 1, below] {$g(x)$};
@@ -328,8 +349,23 @@
                             \draw [-o] (4,0) -- +(4,0) node[pos = 1, below] {$y_0 + b$};
                         \end{tikzpicture}
                     \end{center}   
-                    $\forall x \in I$, let $\psi : y\in K[g(x),g(\overline{x})] \longmapsto f(x,y)$       
+                    $\forall x \in I$, let $\psi : y\in K[g(x),g(\overline{x})] \longmapsto f(x,y)$ 
+                    with $\dot{\psi}(y) = \frac{\partial f}{\partial y}(x,y) > 0$, for the lagrange theorem, $\exists$ a point $\xi_x \in K[g(x),g(\overline{x})]:$ 
+                    \begin{gather*}
+                        \psi(g(x)) - \psi(g(\overline{x})) = \dot{\psi}(\xi_x)(g(x) - g(\overline{x})) 
+                    \end{gather*}
+                    That becomes: $f(x,g(x)) - f(x,g(\overline{x})) = \frac{\partial f}{\partial y}(x,\xi_x)(g(x) - g(\overline{x})) \Rightarrow g(x) - g(\overline{x}) = -\frac{f(x,g(\overline{x}))}{\frac{\partial f}{\partial y}(x,\xi_x)} \Rightarrow \left\lvert g(x) - g(\overline{x}) \right\rvert = \frac{\left\lvert f(x,g(\overline{x})) \right\rvert }{\left\lvert \frac{\partial f}{\partial y}(x,\xi_x)\right\rvert}$.
+                    $\frac{\partial f}{\partial y}$ is continuous and $R_0$ is compact. By the Weierstrass theorem there exists $m = \min\left\{ \left\lvert \frac{\partial f}{\partial y} (x,y) \right\rvert : (x,y) \in R_0 \right\}$, $\frac{\partial f}{\partial y} > 0$ in $R_0$ and that means $m > 0$ so $\left\lvert \frac{\partial f}{\partial y} (x,y) \right\rvert \geq m$ therefore one has:
+                    \begin{equation*}
+                        \left\lvert g(x) - g(\overline{x}) \right\rvert = \frac{\left\lvert f(x,g(\overline{x}))\right\rvert }{\frac{\partial f}{\partial y}(x,\xi_x)} \leq \frac{f(x,g(\overline{x}))}{m}    
+                    \end{equation*}
+                    $x \to \overline{x} \Rightarrow (x,g(\overline{x})) \to (\overline{x},g(\overline{x})), \ f$ is continuous $\Rightarrow f(x,g(\overline{x})) \to f(\overline{x},g(\overline{x})) = 0 $ so $\lim_{x \to \overline{x}}g(x) = g(\overline{x})$. \textbf{iii.} Let $\overline{x} \in I$ we have to prove that $g$ is derivable in $\overline{x}$. If $x \in I$ 
+                    \begin{equation*} 
+                        g(x) - g(\overline{x}) = - \frac{f(x,g(\overline{x}))}{\frac{\partial f}{\partial y}(x,\xi_x)} \Rightarrow \frac{g(x) - g(\overline{x})}{x - \overline{x}} = -\frac{1}{\frac{\partial f}{\partial y}(x,\xi_x)}\frac{f(x,g(\overline{x})) - f(\overline{x},g(\overline{x}))}{x - \overline{x}} \ \blacktriangle    
+                    \end{equation*}
+                    And since there exists the partial derivative of $f$ with respsect to $x$ the last member of the $\blacktriangle$ is the incremental ratio of the function $f(x,g(\overline{x}))$ in the point $f(\overline{x},g(\overline{x}))$ and by examining $\frac{\partial f}{\partial y}(x,\xi_x)$ with $\xi_x \in K[g(x) - g(\overline{x})], \ x \to \overline{x} \Rightarrow g(x) \to g(\overline{x}) \Rightarrow \xi_x \to g(\overline{x}) \Rightarrow (x,\xi_x) \to (\overline{x}, g(\overline{x}))$. $\frac{\partial f}{\partial y}$ is continuous $\Rightarrow \lim_{x \to \overline{x}} \frac{\partial f}{\partial y}(x, \xi_x) = \frac{\partial f}{\partial y}(\overline{x},g(\overline{x}))$ finally $\exists \lim_{x \to \overline{x}}\frac{g(x) - g(\overline{x})}{x - \overline{x}} = -\frac{\frac{\partial f}{\partial x}(\overline{x},g(\overline{x}))}{\frac{\partial f}{\partial y}(\overline{x},g(\overline{x}))}$. \textbf{iv.} is proved by induction infact, if we take $k = 1$ if $f \in C^1$ its partial derivatives are continuous so $g$ is continuous, the rest can be easily verified.
                 \end{proof}
+
             \end{implicitfunctions}
         \subsection*{Bound extremes}
         Let $f: A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ with $A$ open. If $g: A \rightarrow \mathbb{R}^m$ then we define $E_0 = \left\{ x\in A: g(x) = 0 \right\}$. $g = (g_1 ,\dots ,g_m)$ so $g(x) = 0$ is equivalent to say:        
@@ -368,7 +404,7 @@
                     \end{vmatrix} = 0
                 \end{equation*}
                 And if thats is true that implies $\exists (\lambda_1, \lambda_2) \neq (0,0)$ such that one of the two coloums is \textbf{l.d.} \footnote{Linearly dependent} $\Longrightarrow \lambda_1\frac{\partial f}{\partial x}(x_0,y_0) + \lambda_2\frac{\partial g}{\partial x}(x_0,y_0) = 0$. \\
-                If $\lambda_1 = 0 \Rightarrow \lambda_2 \neq 0 \Rightarrow \frac{\partial g}{\partial x}(x_0,y_0) = 0$ but thats impossible since the hypotesis impose it to be different from zero, so it must be $\lambda_1 \neq 0$ and if we chose $\lambda = \frac{\lambda_2}{\lambda_1}$ we have $\mathcal{L} (x,y) = f(x,y) + \lambda g(x,y) = 0$. \\
+                If $\lambda_1 = 0 \Rightarrow \lambda_2 \neq 0 \Rightarrow \frac{\partial g}{\partial x}(x_0,y_0) = 0$ but that's impossible since the hypotesis impose it to be different from zero, so it must be $\lambda_1 \neq 0$ and if we chose $\lambda = \frac{\lambda_2}{\lambda_1}$ we have $\mathcal{L} (x,y) = f(x,y) + \lambda g(x,y) = 0$. \\
                 \textbf{Uniqueness} Let $\mathcal{L} (x,y) = f(x,y) + \lambda g(x,y) = 0$ and $\mathcal{L} (x,y) = f(x,y) + \overline{\lambda}  g(x,y) = 0$. If we subtract member to member the last equations one has: 
                 \begin{equation*}
                     \left( \lambda - \overline{\lambda} \right) \frac{\partial g}{\partial y}(x_0,y_0) = 0 \Rightarrow  \lambda = \overline{\lambda}
